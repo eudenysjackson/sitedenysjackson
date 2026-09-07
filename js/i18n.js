@@ -263,10 +263,12 @@ const translations = {
 
 let currentLang = 'pt';
 
-function setLanguage(lang) {
+function setLanguage(lang, remember = true) {
     if (!translations[lang]) return;
     currentLang = lang;
-    localStorage.setItem('dj_lang', lang);
+    if (remember) {
+        try { localStorage.setItem('dj_lang_explicit', lang); } catch (e) {}
+    }
     document.documentElement.lang = lang === 'pt' ? 'pt-BR' : lang === 'es' ? 'es' : 'en';
 
     // Update all elements with data-i18n
@@ -297,15 +299,10 @@ function t(key) {
     return translations[currentLang]?.[key] || translations['pt']?.[key] || key;
 }
 
-// Initialize language from localStorage or browser
+// Default to Portuguese; only restore an explicit menu choice.
+// The legacy dj_lang value may have been set by browser auto-detection.
 function initLanguage() {
-    const saved = localStorage.getItem('dj_lang');
-    if (saved && translations[saved]) {
-        setLanguage(saved);
-    } else {
-        const browserLang = navigator.language?.substring(0, 2);
-        if (translations[browserLang]) {
-            setLanguage(browserLang);
-        }
-    }
+    let saved;
+    try { saved = localStorage.getItem('dj_lang_explicit'); } catch (e) {}
+    setLanguage(saved && translations[saved] ? saved : 'pt', false);
 }
