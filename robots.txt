@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://denysjackson.com.br/sitemap.xml

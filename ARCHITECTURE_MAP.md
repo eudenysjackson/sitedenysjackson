@@ -1,4 +1,9 @@
-# ARCHITECTURE_MAP.md — Denys Jackson Site
+# ARCHITECTURE_MAP.md - Denys Jackson Site
+
+## Sitemap e descoberta
+
+- `/sitemap.xml`: lista a pagina publica principal; atualizar quando forem criadas novas paginas. Ancoras nao sao paginas separadas.
+- `/robots.txt`: permite rastreamento e informa a URL do sitemap.
 
 > Última atualização: 2026-04-11
 
