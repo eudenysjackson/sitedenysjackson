@@ -2,6 +2,11 @@
 
 ## Sitemap e descoberta
 
+- `scripts/build-static.js`: gera `_site/` com biografia, foto, galeria, agenda, tributo, vídeos, logos e contato no HTML inicial; usa apenas Node nativo e os JSONs do CMS.
+- `scripts/test-static-build.js`: verifica conteúdo sem JavaScript, edição do CMS, estados vazios e escape de texto.
+- `.github/workflows/pages.yml`: testa, gera e publica o artefato em cada push na main (inclusive commits do CMS). Exige Pages com Source = GitHub Actions.
+- `.gitignore`: exclui `_site/`, saída gerada localmente.
+
 - `/sitemap.xml`: lista a pagina publica principal; atualizar quando forem criadas novas paginas. Ancoras nao sao paginas separadas.
 - `/robots.txt`: permite rastreamento e informa a URL do sitemap.
 

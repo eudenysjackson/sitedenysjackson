@@ -2,6 +2,8 @@
 
 > Memória de cura. Antes de resolver um bug, verificar se já foi resolvido aqui.
 
+ERR-007 (2026-09-07): HTML inicial continha placeholders de foto, agenda e galeria; conteúdo só existia após fetch no navegador. Build estático passa a preencher essas seções com JSON do CMS e remove estados vazios quando há conteúdo. Agenda preserva HTML publicado enquanto a primeira requisição não conclui. Validação: `node scripts/test-static-build.js`.
+
 | ID | Descrição | Causa Raiz | Solução | Prevenção |
 |---|---|---|---|---|
 | ERR-001 | CMS: "configuration error" ao acessar /admin/ | `auth_type: pkce` e `app_id` no config.yml — GitHub NÃO suporta PKCE client-side (nem Sveltia CMS implementou) | Removidas as linhas `auth_type: pkce` e `app_id`. Usando autenticação via Personal Access Token (PAT) | Antes de configurar auth, consultar docs oficiais do backend (sveltiacms.app/en/docs/backends/github) |

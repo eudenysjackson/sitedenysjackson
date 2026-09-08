@@ -310,7 +310,7 @@ async function loadAbout() {
 }
 
 // Shows
-let showsData = [];
+let showsData = null;
 
 async function loadShows() {
     const data = await fetchJSON('content/shows.json');
@@ -320,6 +320,8 @@ async function loadShows() {
 }
 
 function renderShows() {
+    // Keep the published HTML while the first CMS request is pending or fails.
+    if (!showsData) return;
     const container = document.getElementById('shows-list');
     const emptyState = document.getElementById('shows-empty');
     if (!container) return;

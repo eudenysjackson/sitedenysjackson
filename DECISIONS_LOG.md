@@ -4,6 +4,12 @@
 
 ---
 
+### DEC-006 — Pré-renderização do conteúdo do CMS
+- **Data**: 2026-09-07
+- **Decisão**: gerar HTML em `_site/` com Node nativo antes de publicar pelo GitHub Actions. Substitui a ausência de build da DEC-001; mantém os JSONs como fonte de verdade e JavaScript para idiomas e interações.
+- **Motivo**: crawlers sem JavaScript recebiam placeholders em lugar do conteúdo publicado.
+- **Operação**: configurar Settings > Pages > Source como GitHub Actions ao ativar este workflow. Cada commit do CMS gera novamente o site. O sitemap mantém a mesma URL.
+
 ### DEC-001 — Stack: HTML estático + Tailwind CDN
 - **Data**: 2026-04-11
 - **Decisão**: Site em HTML puro com Tailwind Play CDN, sem build step
