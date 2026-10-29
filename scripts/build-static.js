@@ -96,6 +96,7 @@ function build(output = path.join(ROOT, '_site')) {
         fs.cpSync(path.join(ROOT, name), path.join(output, name), { recursive: true, filter: p => !p.endsWith('.bak') });
     }
     fs.writeFileSync(path.join(output, 'index.html'), html);
+    require('./build-home-prototype').buildHomePrototype();
     console.log('Static HTML generated: ' + data.gallery.photos.length + ' photos; CMS content included.');
     return html;
 }

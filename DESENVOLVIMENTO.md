@@ -55,3 +55,16 @@ Na nuvem, processos não são preservados por snapshots: ao retomar, execute nov
 ## Estado observado do GitHub Actions
 
 Em 29/10/2026, a execução de desenvolvimento 40899393785 falhou antes de iniciar qualquer etapa. A anotação oficial do GitHub foi: “The job was not started because your account is locked due to a billing issue.” Portanto, o CI remoto está bloqueado pela conta, não é uma reprovação dos testes. Os testes e a homologação descritos acima foram executados localmente e passaram. Resolver a cobrança/limitação na conta GitHub é uma ação externa caso se queira ativar o CI; isso não bloqueia desenvolvimento local nem push para a branch. Nenhuma configuração de cobrança foi alterada.
+
+
+## Revisar a nova Home
+
+O primeiro protótipo está no caminho `/prototipo/` do servidor local e na coleção **Nova Home — desenvolvimento** do CMS. Ele não substitui a página raiz. Leia `docs/planejamento/prototipo-home.md` para escopo e conteúdo pendente. Para gerar/validar:
+
+```bash
+node scripts/test-home-prototype.js
+node scripts/build-static.js
+node scripts/test-home-browser.js
+```
+
+A versão pré-renderizada fica em `/_site/prototipo/`; gere novamente após edições do CMS. Os screenshots desktop e celular são gerados fora do checkout no diretório externo de ferramentas, em `test-results/home`.

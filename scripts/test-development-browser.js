@@ -19,7 +19,7 @@ async function until(check, message) {
 async function main() {
     verifyCmsAsset();
     fs.mkdirSync(artifacts, { recursive: true });
-    const originals = Object.fromEntries(['site', 'gallery', 'shows', 'social_proof'].map(name =>
+    const originals = Object.fromEntries(['site', 'gallery', 'shows', 'social_proof', 'home'].map(name =>
         [name, fs.readFileSync(path.join(ROOT, 'content', name + '.json'), 'utf8')]));
     const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'dj-cms-browser-'));
     for (const item of ['admin', 'content', 'css', 'js', 'scripts', 'index.html']) {
@@ -72,6 +72,17 @@ async function main() {
         assert.equal(await page.getByLabel('Slogan', { exact: true }).inputValue(), marker);
         await page.screenshot({ path: path.join(artifacts, 'cms-editor.png') });
         console.log('OK: login local, widget personalizado, edição CMS e persistência após reload.');
+
+        await page.goto('http://localhost:8080/admin/#/collections/home_prototype');
+        await page.getByText('Textos e imagens da nova Home', { exact: true }).click();
+        await page.getByText('Textos por idioma', { exact: true }).filter({ visible: true }).last().getByTestId('expand-button').click();
+        await page.getByText('Ir para o conteúdo', { exact: true }).filter({ visible: true }).last().getByTestId('expand-button').click();
+        await page.getByLabel('Português', { exact: true }).filter({ visible: true }).first().fill('Ir ao conteúdo de teste');
+        await page.getByRole('button', { name: 'Publicar', exact: true }).click();
+        await page.getByText('Publicar agora', { exact: true }).click();
+        await page.screenshot({ path: path.join(artifacts, 'home-cms-saved.png') });
+        await until(() => json(path.join(fixture, 'content/home.json')).copy.skip.pt === 'Ir ao conteúdo de teste', 'New Home collection did not save');
+        console.log('OK: coleção da nova Home edita o JSON multilíngue no CMS real.');
 
         await page.goto('http://localhost:8080/admin/gallery-upload.html');
         await page.locator('#file-input').setInputFiles({

@@ -149,3 +149,13 @@ Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua
 - `scripts/serve-static.js`: entrega `/admin/cms-local.js` a partir do cache verificado; porta configurável via DJ_SITE_PORT.
 - `scripts/local-api.js`: `/api/content` salva apenas site/gallery/social_proof/shows JSON na branch de desenvolvimento; painel visual usa esse caminho local.
 - `.github/workflows/development-checks.yml`: inclui preparação e homologação em navegador, sem deploy.
+
+## Primeira Home em desenvolvimento (2026-10-29)
+
+- `prototipo/index.html`: proposta de Home separada, com conteúdo PT inicial, navegação sem rotas vazias e noindex.
+- `content/home.json`: textos PT/EN/ES, três imagens e cinco links profissionais; editável na coleção Nova Home — desenvolvimento.
+- `css/home.css`: composição responsiva usando a paleta própria; `css/fonts/inter-latin.woff2`, `OFL.txt` e `README.md`: Inter local e licença.
+- `js/home.js`: aprimoramento progressivo, menu com teclado, imagens/materiais/contato do CMS; `js/i18n.js` registra traduções de página com escape.
+- `scripts/build-home-prototype.js`: pré-renderiza conteúdo e valida fontes/links; chamado pelo build estático para gerar `_site/prototipo/`.
+- `scripts/test-home-prototype.js`: edição CMS, escape, links, três idiomas e repetibilidade. `scripts/test-home-browser.js`: layout em quatro larguras, fotos/fonte, idiomas, teclado, no-JS e screenshots.
+- `scripts/test-development-browser.js`: inclui edição real da nova coleção em fixture. `docs/planejamento/prototipo-home.md`: escopo e instruções de revisão.

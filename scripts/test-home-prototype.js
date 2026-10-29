@@ -1,0 +1,34 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const { renderHome } = require('./build-home-prototype');
+const ROOT = path.resolve(__dirname, '..');
+const source = fs.readFileSync(path.join(ROOT, 'prototipo/index.html'), 'utf8');
+const home = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/home.json'), 'utf8'));
+const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/site.json'), 'utf8'));
+const keys = [...source.matchAll(/data-i18n="home\.([a-z_0-9]+)"/g)].map(m => m[1]);
+for (const lang of ['pt', 'en', 'es']) {
+    for (const key of keys) assert.equal(typeof home.copy[key][lang], 'string', key + '/' + lang);
+    const html = renderHome(source, home, site, lang);
+    assert(html.includes(home.copy.hero_description[lang]));
+    assert(html.includes('name="robots" content="noindex, nofollow"'));
+    assert(html.includes('<h1>Denys<br>Jackson'));
+    assert.equal((html.match(/data-home-material=/g) || []).length, 5);
+    assert(html.includes('mailto:' + site.email));
+    assert(!html.includes('2026-11-14'), 'Unconfirmed date must not be advertised');
+    assert.equal(renderHome(html, home, site, lang), html, 'Rendering must be repeatable');
+}
+const edited = structuredClone(home);
+edited.copy.hero_description.pt = '<img src=x onerror=alert(1)> & conteúdo do CMS';
+const html = renderHome(source, edited, { ...site, email: 'novo$&@example.test' });
+assert(html.includes('&lt;img src=x onerror=alert(1)&gt; &amp; conteúdo do CMS'));
+assert(!html.includes('<img src=x'));
+assert(html.includes('mailto:novo$&amp;@example.test'));
+assert.throws(() => renderHome(source, { ...home, images: { ...home.images, hero: '/images/../private.jpg' } }, site), /image path/);
+assert.throws(() => renderHome(source, { ...home, materials: { ...home.materials, rider: 'javascript:alert(1)' } }, site), /material URL/);
+const context = vm.createContext({});
+vm.runInContext(fs.readFileSync(path.join(ROOT, 'js/i18n.js'), 'utf8'), context);
+context.registerPageTranslations('home', edited.copy);
+assert.equal(vm.runInContext("translations.pt['home.hero_description']", context), '&lt;img src=x onerror=alert(1)&gt; &amp; conteúdo do CMS');
+console.log('OK: Home CMS edits, three languages, no-JS content, safe links/escaping and repeatability.');

@@ -1,0 +1,326 @@
+{
+  "copy": {
+    "skip": {
+      "pt": "Ir para o conteúdo",
+      "en": "Skip to content",
+      "es": "Ir al contenido"
+    },
+    "nav_artist": {
+      "pt": "O artista",
+      "en": "The artist",
+      "es": "El artista"
+    },
+    "nav_show": {
+      "pt": "O espetáculo",
+      "en": "The show",
+      "es": "El espectáculo"
+    },
+    "nav_media": {
+      "pt": "Na mídia",
+      "en": "In the media",
+      "es": "En los medios"
+    },
+    "nav_material": {
+      "pt": "Material profissional",
+      "en": "Professional resources",
+      "es": "Material profesional"
+    },
+    "hire": {
+      "pt": "Contrate o espetáculo",
+      "en": "Book the show",
+      "es": "Contrata el espectáculo"
+    },
+    "menu": {
+      "pt": "Menu",
+      "en": "Menu",
+      "es": "Menú"
+    },
+    "hero_label": {
+      "pt": "Artista tributo • Produtor cultural",
+      "en": "Tribute artist • Cultural producer",
+      "es": "Artista tributo • Productor cultural"
+    },
+    "hero_description": {
+      "pt": "Performance, dança e produção cênica em um espetáculo independente que celebra a obra de Michael Jackson.",
+      "en": "Performance, dance and stage production in an independent show celebrating the work of Michael Jackson.",
+      "es": "Performance, danza y producción escénica en un espectáculo independiente que celebra la obra de Michael Jackson."
+    },
+    "discover": {
+      "pt": "Conheça o espetáculo",
+      "en": "Discover the show",
+      "es": "Conoce el espectáculo"
+    },
+    "professional": {
+      "pt": "Imprensa & material profissional",
+      "en": "Press & professional resources",
+      "es": "Prensa y material profesional"
+    },
+    "fan": {
+      "pt": "Um tributo feito de fã para fã.",
+      "en": "A tribute made by a fan, for fans.",
+      "es": "Un tributo hecho de fan para fan."
+    },
+    "artist_label": {
+      "pt": "Palco, pesquisa e trajetória",
+      "en": "Stage, research and experience",
+      "es": "Escenario, investigación y trayectoria"
+    },
+    "artist_title": {
+      "pt": "Uma história que começa com admiração.",
+      "en": "A story that begins with admiration.",
+      "es": "Una historia que comienza con admiración."
+    },
+    "artist_body": {
+      "pt": "Denys Jackson iniciou sua trajetória como intérprete de Michael Jackson em 2015, no Parque Madureira, no Rio de Janeiro. A paixão pela performance ganhou pesquisa, figurinos e produção própria — e se transformou em Na Ponta dos Pés.",
+      "en": "Denys Jackson began performing as a Michael Jackson tribute artist in 2015 at Parque Madureira, Rio de Janeiro. His passion grew into research, costumes and independent production — and became Na Ponta dos Pés.",
+      "es": "Denys Jackson comenzó su trayectoria como intérprete de Michael Jackson en 2015, en el Parque Madureira, Río de Janeiro. Su pasión sumó investigación, vestuario y producción propia, hasta convertirse en Na Ponta dos Pés."
+    },
+    "training": {
+      "pt": "464 horas de formação complementar em gestão cultural e áreas técnicas.",
+      "en": "464 hours of additional training in cultural management and technical production.",
+      "es": "464 horas de formación complementaria en gestión cultural y áreas técnicas."
+    },
+    "timeline_2015": {
+      "pt": "Primeiras performances no Parque Madureira",
+      "en": "First performances at Parque Madureira",
+      "es": "Primeras actuaciones en el Parque Madureira"
+    },
+    "timeline_2018": {
+      "pt": "Estreia do primeiro espetáculo",
+      "en": "Debut of the first show",
+      "es": "Estreno del primer espectáculo"
+    },
+    "timeline_2019": {
+      "pt": "Nasce Na Ponta dos Pés",
+      "en": "Na Ponta dos Pés takes its name",
+      "es": "Nace Na Ponta dos Pés"
+    },
+    "timeline_2026": {
+      "pt": "Montagem inspirada na era Bad",
+      "en": "A production inspired by the Bad era",
+      "es": "Montaje inspirado en la era Bad"
+    },
+    "show_label": {
+      "pt": "O espetáculo",
+      "en": "The show",
+      "es": "El espectáculo"
+    },
+    "show_title": {
+      "pt": "Na Ponta dos Pés",
+      "en": "Na Ponta dos Pés",
+      "es": "Na Ponta dos Pés"
+    },
+    "show_body": {
+      "pt": "Coreografias, figurinos, corpo de baile, projeções e efeitos cênicos revisitam diferentes momentos da carreira de Michael Jackson. Uma produção independente, com identidade própria e formatos adaptáveis a teatros, arenas e festivais.",
+      "en": "Choreography, costumes, dancers, projections and stage effects revisit different moments in Michael Jackson’s career. An independent production with its own identity, adaptable to theaters, arenas and festivals.",
+      "es": "Coreografías, vestuario, cuerpo de baile, proyecciones y efectos escénicos recorren distintos momentos de la carrera de Michael Jackson. Una producción independiente con identidad propia y formatos adaptables a teatros, arenas y festivales."
+    },
+    "duration": {
+      "pt": "Duração aproximada",
+      "en": "Approximate running time",
+      "es": "Duración aproximada"
+    },
+    "rating": {
+      "pt": "Classificação indicativa",
+      "en": "Age rating",
+      "es": "Clasificación"
+    },
+    "all_ages": {
+      "pt": "Livre",
+      "en": "All ages",
+      "es": "Todo público"
+    },
+    "dancers": {
+      "pt": "Bailarinos, conforme a montagem",
+      "en": "Dancers, depending on production",
+      "es": "Bailarines, según el montaje"
+    },
+    "format": {
+      "pt": "Performance com fonogramas e dublagem interpretativa.",
+      "en": "Performance with recorded tracks and interpretive lip-sync.",
+      "es": "Performance con fonogramas y doblaje interpretativo."
+    },
+    "bad_label": {
+      "pt": "Montagem 2026",
+      "en": "2026 production",
+      "es": "Montaje 2026"
+    },
+    "bad_title": {
+      "pt": "A energia da era Bad.",
+      "en": "The energy of the Bad era.",
+      "es": "La energía de la era Bad."
+    },
+    "bad_body": {
+      "pt": "Uma estética urbana, sombria e marcada pelo rock. A montagem reúne referências da Bad World Tour, Captain EO e Speed Demon, com repertório e linguagem visual próprios.",
+      "en": "An urban, darker aesthetic with a rock edge. This production brings together references to the Bad World Tour, Captain EO and Speed Demon through its own repertoire and visual language.",
+      "es": "Una estética urbana, oscura y marcada por el rock. El montaje reúne referencias de la Bad World Tour, Captain EO y Speed Demon, con repertorio y lenguaje visual propios."
+    },
+    "bad_note": {
+      "pt": "Bad e Dangerous podem alternar conforme a casa, a montagem e as dimensões do palco.",
+      "en": "Bad and Dangerous productions may alternate depending on the venue, staging and stage dimensions.",
+      "es": "Los montajes Bad y Dangerous pueden alternarse según el espacio, la producción y las dimensiones del escenario."
+    },
+    "recordings": {
+      "pt": "Registros de palco",
+      "en": "Stage recordings",
+      "es": "Registros en escena"
+    },
+    "watch": {
+      "pt": "Assistir no Instagram",
+      "en": "Watch on Instagram",
+      "es": "Ver en Instagram"
+    },
+    "media_label": {
+      "pt": "Imprensa & participações",
+      "en": "Press & appearances",
+      "es": "Prensa y participaciones"
+    },
+    "media_title": {
+      "pt": "O trabalho também conta histórias fora do palco.",
+      "en": "The story continues beyond the stage.",
+      "es": "La historia continúa fuera del escenario."
+    },
+    "globo_context": {
+      "pt": "Reportagem sobre o espetáculo",
+      "en": "Coverage of the show",
+      "es": "Reportaje sobre el espectáculo"
+    },
+    "record_context": {
+      "pt": "Cobertura do trabalho de Denys Jackson",
+      "en": "Coverage of Denys Jackson’s work",
+      "es": "Cobertura del trabajo de Denys Jackson"
+    },
+    "multishow_context": {
+      "pt": "Participação no programa Te Vejo no After",
+      "en": "Appearance on Te Vejo no After",
+      "es": "Participación en Te Vejo no After"
+    },
+    "view_report": {
+      "pt": "Ver reportagem",
+      "en": "Watch coverage",
+      "es": "Ver reportaje"
+    },
+    "agenda_label": {
+      "pt": "Agenda",
+      "en": "Schedule",
+      "es": "Agenda"
+    },
+    "agenda_title": {
+      "pt": "Nos encontramos no próximo palco.",
+      "en": "See you at the next stage.",
+      "es": "Nos vemos en el próximo escenario."
+    },
+    "agenda_body": {
+      "pt": "Acompanhe a programação e os canais oficiais para informações sobre as próximas apresentações.",
+      "en": "Follow the schedule and official channels for information on upcoming performances.",
+      "es": "Consulta la programación y los canales oficiales para conocer las próximas presentaciones."
+    },
+    "agenda_cta": {
+      "pt": "Consultar a agenda",
+      "en": "View the schedule",
+      "es": "Consultar la agenda"
+    },
+    "materials_label": {
+      "pt": "Para imprensa e produção",
+      "en": "For press and production",
+      "es": "Para prensa y producción"
+    },
+    "materials_title": {
+      "pt": "Tudo para conhecer e levar o espetáculo adiante.",
+      "en": "Everything to discover and bring the show to your stage.",
+      "es": "Todo para conocer y llevar el espectáculo a tu escenario."
+    },
+    "materials_body": {
+      "pt": "Apresentação, conteúdo para divulgação e informações de produção reunidos no material profissional de 2026.",
+      "en": "Presentation, publicity content and production information in the 2026 professional resource collection.",
+      "es": "Presentación, contenido de difusión e información de producción en el material profesional de 2026."
+    },
+    "release": {
+      "pt": "Release artístico",
+      "en": "Artist release",
+      "es": "Comunicado artístico"
+    },
+    "media_kit": {
+      "pt": "Mídia kit",
+      "en": "Media kit",
+      "es": "Dossier de prensa"
+    },
+    "synopsis": {
+      "pt": "Sinopse",
+      "en": "Synopsis",
+      "es": "Sinopsis"
+    },
+    "credits": {
+      "pt": "Ficha técnica & elenco",
+      "en": "Credits & cast",
+      "es": "Ficha técnica y elenco"
+    },
+    "rider": {
+      "pt": "Rider técnico",
+      "en": "Technical rider",
+      "es": "Rider técnico"
+    },
+    "pdf": {
+      "pt": "PDF • Português",
+      "en": "PDF • Portuguese",
+      "es": "PDF • Portugués"
+    },
+    "folder": {
+      "pt": "Acessar pasta de imprensa",
+      "en": "Open press folder",
+      "es": "Abrir carpeta de prensa"
+    },
+    "contact_label": {
+      "pt": "Vamos conversar",
+      "en": "Let’s talk",
+      "es": "Hablemos"
+    },
+    "contact_title": {
+      "pt": "Leve Na Ponta dos Pés para o seu palco.",
+      "en": "Bring Na Ponta dos Pés to your stage.",
+      "es": "Lleva Na Ponta dos Pés a tu escenario."
+    },
+    "contact_body": {
+      "pt": "Contratações, circulação, imprensa e projetos culturais. Fale diretamente com a produção.",
+      "en": "Bookings, touring, press and cultural projects. Contact the production team directly.",
+      "es": "Contrataciones, circulación, prensa y proyectos culturales. Contacta directamente con producción."
+    },
+    "contact_cta": {
+      "pt": "Fale com a produção",
+      "en": "Talk to production",
+      "es": "Habla con producción"
+    },
+    "independent": {
+      "pt": "Tributo independente a Michael Jackson.",
+      "en": "An independent tribute to Michael Jackson.",
+      "es": "Tributo independiente a Michael Jackson."
+    },
+    "hero_alt": {
+      "pt": "Denys Jackson em performance, com figurino escuro e iluminação roxa",
+      "en": "Denys Jackson performing in a dark costume under purple stage lighting",
+      "es": "Denys Jackson en escena, con vestuario oscuro e iluminación violeta"
+    },
+    "artist_alt": {
+      "pt": "Denys Jackson em cena com jaqueta vermelha",
+      "en": "Denys Jackson on stage wearing a red jacket",
+      "es": "Denys Jackson en escena con chaqueta roja"
+    },
+    "show_alt": {
+      "pt": "Registro de palco de Denys Jackson com figurino prateado",
+      "en": "Denys Jackson on stage in a silver costume",
+      "es": "Denys Jackson en escena con vestuario plateado"
+    }
+  },
+  "images": {
+    "hero": "/images/uploads/gallery-1224-1785720494268.jpg",
+    "artist": "/images/uploads/gallery-rotated-1785720774415-1785720774415.jpg",
+    "show": "/images/uploads/gallery-1425-1785720650698.jpg"
+  },
+  "materials": {
+    "release": "https://drive.google.com/file/d/12s-EB2Ebq8UPh2hMpgZSWdgsLXpKbJT2/view",
+    "media_kit": "https://drive.google.com/file/d/1AtByZEfUu7iLB3RwfpdvW74_4BgLxElW/view",
+    "synopsis": "https://drive.google.com/file/d/1TwG1evkEzEm4G8NLfuLtN8GfC9-SJfeD/view",
+    "credits": "https://drive.google.com/file/d/1rZC9AQk5F2yxurMFr08a0A1JPT5t4FfL/view",
+    "rider": "https://drive.google.com/file/d/1VCsT6gTsZ3wt3yMBIlSJpXcPNIEdYzcf/view"
+  }
+}

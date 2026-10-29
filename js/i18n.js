@@ -306,3 +306,15 @@ function initLanguage() {
     try { saved = localStorage.getItem('dj_lang_explicit'); } catch (e) {}
     setLanguage(saved && translations[saved] ? saved : 'pt', false);
 }
+
+// Register CMS-managed copy for a page without duplicating it in the application.
+function registerPageTranslations(namespace, copy) {
+    Object.keys(copy).forEach(key => {
+        Object.keys(translations).forEach(lang => {
+            if (typeof copy[key][lang] === 'string') {
+                translations[lang][namespace + '.' + key] = copy[key][lang].replace(/[&<>"']/g, character =>
+                    ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
+            }
+        });
+    });
+}

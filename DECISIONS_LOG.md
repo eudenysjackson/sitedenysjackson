@@ -65,3 +65,9 @@
 - **Decisão**: preparar Decap Server 3.11.6, CMS 3.3.0 e Playwright Core 1.57.0 fora do checkout; iniciar site/API/CMS por `node scripts/develop.js`. Pacote CMS conferido com SHA-512 oficial do npm e bundle com SHA-256; nenhuma verificação TLS/integridade foi desabilitada.
 - **Validação**: login local, edição e persistência após reload, upload e ajuste visual em Chromium, usando cópia descartável e bloqueio de rede externa. Conteúdo original preservado.
 - **Operação**: fluxo sem token; sincronização em development/novo-site. Serviços reiniciam em cada máquina/tarefa; ver DESENVOLVIMENTO.md. Nenhum preview externo ou produção foi publicado.
+
+### DEC-010 — Protótipo da Home separado da página existente
+- **Data**: 2026-10-29
+- **Decisão**: primeiro protótipo em `/prototipo/`, com paleta própria, Inter local licenciada e fotografias existentes otimizadas. Manter a página raiz até revisão; não criar páginas internas vazias.
+- **Conteúdo**: JSON próprio PT/EN/ES editável no CMS; contatos reaproveitam site.json. Pré-renderização no build e aprimoramento progressivo. Escapar textos do CMS e validar URLs antes de renderizar.
+- **Revisão**: screenshots e testes locais; nenhuma publicação oficial autorizada. Agenda sem anunciar data pendente; fotos/vídeo sujeitos à curadoria final.

@@ -21,3 +21,5 @@ ERR-010 (2026-10-29, corrigido na branch de desenvolvimento): CMS e painéis de 
 ERR-011 (2026-10-29, corrigido em desenvolvimento): aviso fixo do admin cobria o botão Publicar do CMS; checagem do proxy usava GET para endpoint POST; painel de ajustes não tinha caminho de salvamento local. Aviso movido para canto sem interceptar cliques, checagem alterada para ação info, e endpoint local com whitelist de JSONs e verificação de branch implementado. Homologação real no Chromium confirmou edição, upload e ajuste, em fixture descartável.
 
 ERR-012 (2026-10-29, bloqueio externo): GitHub Actions não iniciou job da execução 40899393785. Anotação oficial: conta bloqueada por problema de cobrança. Não tratar como falha da suíte nem tentar corrigir código para contornar. Validação local completa passou; desenvolvimento e sincronização seguem disponíveis.
+
+ERR-013 (2026-10-29, resolvido no protótipo): setas diagonais em Unicode apareciam como glifos ausentes em uma captura com a fonte Inter Latin. Substituídas por SVGs locais decorativos, preservando o texto acessível e sem carregar biblioteca de ícones. Revisão Chromium desktop/mobile concluída.
