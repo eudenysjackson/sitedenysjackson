@@ -7,7 +7,8 @@ const fs = require('fs');
 const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
-const PORT = 8080;
+const PORT = Number(process.env.DJ_SITE_PORT || 8080);
+const { verifyCmsAsset } = require('./development-tools');
 
 const MIME = {
     '.html': 'text/html; charset=utf-8',
@@ -71,6 +72,11 @@ function resolvePath(urlPath, cb) {
 }
 
 const server = http.createServer(function (req, res) {
+    if ((req.url || '').split('?')[0] === '/admin/cms-local.js') {
+        try { serveFile(res, verifyCmsAsset()); }
+        catch (error) { send(res, 503, 'Execute node scripts/setup-development.js para preparar o CMS local.'); }
+        return;
+    }
     var urlPath = decodeURIComponent((req.url || '/').split('?')[0]);
     if (urlPath === '/') urlPath = '/index.html';
 
@@ -84,6 +90,6 @@ const server = http.createServer(function (req, res) {
 });
 
 server.listen(PORT, function () {
-    console.log('Site local: http://localhost:' + PORT + '/');
+    console.log('Site local: http://localhost:' + server.address().port + '/');
     console.log('Admin:      http://localhost:' + PORT + '/admin/');
 });

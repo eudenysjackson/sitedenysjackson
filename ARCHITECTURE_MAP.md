@@ -138,3 +138,14 @@ Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua
 - `scripts/test-admin-isolation.js`: testes de fronteiras com chamadas simuladas e API HTTP em checkout temporário; sem gravações em produção.
 - `.github/workflows/development-checks.yml`: testes/build de desenvolvimento sem deploy. `pages.yml` exige ref main nos jobs.
 - `docs/planejamento/homologacao-cms.md`: operação, evidências e limites; não há preview remoto nem autenticação CMS real validada nesta etapa.
+
+## Ambiente de desenvolvimento completo (2026-10-29)
+
+- `DESENVOLVIMENTO.md`: entrada principal para preparar, iniciar, testar e sincronizar sem publicar.
+- `scripts/development-tools.js`: local externo das ferramentas, verificação do bundle CMS e exigência de branch.
+- `scripts/setup-development.js`: versões fixas do servidor CMS/testador e extração do bundle oficial com verificação SHA-512/SHA-256, fora do checkout.
+- `scripts/develop.js`: supervisor de site/API/CMS com prontidão, recusa de portas ocupadas e limpeza dos próprios processos.
+- `scripts/test-development-browser.js`: rodada real no Chromium em cópia temporária; testa edição persistente, upload e ajuste visual, sem rede externa nem alteração dos dados originais.
+- `scripts/serve-static.js`: entrega `/admin/cms-local.js` a partir do cache verificado; porta configurável via DJ_SITE_PORT.
+- `scripts/local-api.js`: `/api/content` salva apenas site/gallery/social_proof/shows JSON na branch de desenvolvimento; painel visual usa esse caminho local.
+- `.github/workflows/development-checks.yml`: inclui preparação e homologação em navegador, sem deploy.

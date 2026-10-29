@@ -52,3 +52,8 @@ Não há URL remota de homologação provisionada nesta etapa. A branch sincroni
 - Testes estáticos e build passaram, com 16 fotos.
 - Login e edição reais em Sveltia/Decap não foram exercitados; nenhuma credencial foi solicitada ou usada. A integração real em navegador ainda precisa ser homologada. Se uma nova versão do CMS usar uma rota bloqueada, o salvamento será recusado; investigar a rota e testar antes de ampliar a permissão. Não remover a proteção nem criar fallback para main.
 - Não afirmar que o painel oficial antigo está protegido por este código até uma publicação autorizada. Não publicar este admin de desenvolvimento como painel de produção: ele recusa o domínio oficial por projeto.
+
+
+## Atualização: ambiente local homologado
+
+A preparação foi completada após esta primeira etapa: consulte `../../DESENVOLVIMENTO.md`. O CMS local agora carrega um bundle oficial verificado do servidor, e `node scripts/develop.js` supervisiona os três serviços. A validação real em Chromium confirmou login, edição persistente após reload, upload e salvamento do painel visual em cópia temporária. Nenhum arquivo de conteúdo original foi alterado. O painel visual local usa `/api/content`, limitado aos quatro JSONs permitidos e à branch correta. As limitações anteriores de login/edição locais foram resolvidas; Sveltia remoto e hospedagem pública separada não foram provisionados/validados.

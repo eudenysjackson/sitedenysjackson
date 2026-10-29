@@ -59,3 +59,9 @@
 - **Validação**: 27 testes, incluindo HTTP em checkout temporário, mais suíte estática e build.
 - **Operação**: CI de desenvolvimento apenas testa e gera; deploy existente só roda jobs em main. Nada foi publicado.
 - **Limite**: as proteções estão nesta versão de desenvolvimento. Login/edição reais, preview remoto e permissões GitHub ainda precisam de homologação; não substituir controles de acesso por guards do navegador.
+
+### DEC-009 — Ambiente completo com ferramentas externas e CMS local verificado
+- **Data**: 2026-10-29
+- **Decisão**: preparar Decap Server 3.11.6, CMS 3.3.0 e Playwright Core 1.57.0 fora do checkout; iniciar site/API/CMS por `node scripts/develop.js`. Pacote CMS conferido com SHA-512 oficial do npm e bundle com SHA-256; nenhuma verificação TLS/integridade foi desabilitada.
+- **Validação**: login local, edição e persistência após reload, upload e ajuste visual em Chromium, usando cópia descartável e bloqueio de rede externa. Conteúdo original preservado.
+- **Operação**: fluxo sem token; sincronização em development/novo-site. Serviços reiniciam em cada máquina/tarefa; ver DESENVOLVIMENTO.md. Nenhum preview externo ou produção foi publicado.

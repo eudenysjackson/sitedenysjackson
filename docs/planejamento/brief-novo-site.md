@@ -6,7 +6,7 @@ Documento de trabalho de 29/10/2026. Conteúdo proposto para homologação; não
 
 - Trabalhar na branch `development/novo-site`, mantendo `main` intacta. Sincronização remota permite continuidade entre máquinas e não autoriza deploy.
 - Não executar workflow de publicação, merge em main, escrita via CMS online ou mudança de DNS/Pages sem autorização explícita para publicar a versão candidata.
-- A branch contém planejamento e isolamento do CMS de desenvolvimento, documentado em `homologacao-cms.md`. Ela não constitui um preview remoto. A nova versão do painel usa development/novo-site; o painel oficial antigo não foi alterado. Login/edição reais ainda precisam de homologação.
+- A branch contém planejamento e isolamento do CMS de desenvolvimento, documentado em `homologacao-cms.md`. Ela não constitui um preview remoto. A nova versão do painel usa development/novo-site; o painel oficial antigo não foi alterado. Login/edição locais, upload e ajustes foram homologados em Chromium; ver DESENVOLVIMENTO.md. A autenticação remota do Sveltia e um preview público permanecem fora do fluxo local validado.
 - Usar o checkout existente; não criar worktree sem pedido explícito. Não enviar exportação de chats, certificados com dados pessoais nem acervo bruto ao Git.
 - Não presumir que a branch herda segredos, processos ou ferramentas de outra máquina. Conferir instruções e estado local ao retomar.
 

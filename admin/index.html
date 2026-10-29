@@ -25,9 +25,10 @@
         .adjust-link:hover { background: #3730a3; }
         .local-banner {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            bottom: 16px;
+            left: 16px;
+            max-width: 300px;
+            pointer-events: none;
             z-index: 10000;
             background: #b45309;
             color: #fff;
@@ -38,7 +39,7 @@
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(0,0,0,0.15);
         }
-        body.local-mode { padding-top: 44px; }
+
     </style>
 </head>
 <body>
@@ -64,7 +65,7 @@
             var cms = document.createElement('script');
             cms.async = false;
             cms.src = window.__DJ_LOCAL__
-                ? 'https://unpkg.com/decap-cms@3.3.0/dist/decap-cms.js'
+                ? 'cms-local.js'
                 : 'https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js';
             cms.onload = function () {
                 var ext = document.createElement('script');

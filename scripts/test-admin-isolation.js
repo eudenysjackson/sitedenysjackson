@@ -172,7 +172,7 @@ function localApi(branch) {
 for (const branch of ['main', 'work', '', null]) {
     test('local API rejects writes in checkout ' + String(branch), async () => {
         const api = localApi(branch);
-        for (const route of ['/api/gallery', '/api/upload', '/api/compress-gallery']) {
+        for (const route of ['/api/gallery', '/api/upload', '/api/compress-gallery', '/api/content']) {
             assert.equal((await api.request(route, {})).status, 409);
         }
         assert.equal(api.writes.length, 0);
@@ -183,7 +183,11 @@ test('local API accepts development gallery and upload without touching real fil
     const api = localApi(BRANCH);
     assert.equal((await api.request('/api/gallery', { photos: [] })).status, 200);
     assert.equal((await api.request('/api/upload', { filename: 'test.jpg', data: 'e30=' })).status, 200);
+    assert.equal((await api.request('/api/content', { path: '../outside.json', data: {} })).status, 400);
+    assert.equal((await api.request('/api/content', { path: 'content/site.json', data: [] })).status, 400);
     assert.equal(api.writes.length, 2);
+    assert.equal((await api.request('/api/content', { path: 'content/site.json', data: { hero_position: '37% 0%' } })).status, 200);
+    assert.equal(api.writes.length, 3);
 });
 
 test('real HTTP API isolates files and refuses a main checkout', { timeout: 15000 }, async t => {
@@ -230,6 +234,7 @@ test('real HTTP API isolates files and refuses a main checkout', { timeout: 1500
     assert.equal((await post('/api/upload', { filename: 'blocked.jpg', data: 'e30=' })).status, 409);
     assert.equal(fs.readFileSync(gallery, 'utf8'), '{"photos":[]}\n');
     assert.equal(fs.existsSync(path.join(fixture, 'images/uploads/blocked.jpg')), false);
+    assert.equal((await post('/api/content', { path: 'content/site.json', data: {} })).status, 409);
     execFileSync('git', ['symbolic-ref', 'HEAD', 'refs/heads/' + BRANCH], { cwd: fixture });
     const data = { photos: [{ caption: 'only in temporary development fixture' }] };
     assert.equal((await post('/api/gallery', data)).status, 200);

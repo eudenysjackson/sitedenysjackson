@@ -47,7 +47,10 @@
             CMS.registerEventListener({
                 name: eventName,
                 handler: function () {
-                    return fetch('http://localhost:8081/api/v1', { cache: 'no-store' })
+                    return fetch('http://localhost:8081/api/v1', {
+                        method: 'POST', headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ action: 'info' })
+                    })
                         .then(function (r) {
                             if (!r.ok) throw new Error('decap-server offline');
                         })

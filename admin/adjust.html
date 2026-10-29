@@ -357,6 +357,14 @@
     }
 
     async function ghSave(path, content, sha, message) {
+        if (IS_LOCAL) {
+            var local = await fetch('http://localhost:8082/api/content', {
+                method: 'POST', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ path: path, data: JSON.parse(content) })
+            });
+            if (!local.ok) throw new Error('Não foi possível salvar localmente. Verifique a API e a branch de desenvolvimento.');
+            return await local.json();
+        }
         window.DJAdmin.assertRemoteWrite();
         var res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, {
             method: 'PUT',
@@ -552,7 +560,7 @@
             siteData.hero_position = document.getElementById('hero-x').value + '% ' + document.getElementById('hero-y').value + '%';
             siteData.hero_position_mobile = document.getElementById('mobile-x').value + '% ' + document.getElementById('mobile-y').value + '%';
             var result = await ghSave('content/site.json', JSON.stringify(siteData, null, 2) + '\n', siteSha, 'Ajuste posição hero via painel visual');
-            siteSha = result.content.sha;
+            if (result.content) siteSha = result.content.sha;
             setStatus('ok', 'Salvo com sucesso!');
         } catch(e) {
             setStatus('err', e.message);
@@ -568,7 +576,7 @@
             galleryData.photos[selectedPhoto].position = document.getElementById('gallery-x').value + '% ' + document.getElementById('gallery-y').value + '%';
             galleryData.photos[selectedPhoto].position_mobile = document.getElementById('gallery-mx').value + '% ' + document.getElementById('gallery-my').value + '%';
             var result = await ghSave('content/gallery.json', JSON.stringify(galleryData, null, 2) + '\n', gallerySha, 'Ajuste posição foto galeria via painel visual');
-            gallerySha = result.content.sha;
+            if (result.content) gallerySha = result.content.sha;
             setStatus('ok', 'Foto salva!', 'status-gallery');
         } catch(e) {
             setStatus('err', e.message, 'status-gallery');
@@ -665,7 +673,7 @@
             socialData.logos[selectedLogo].position_mobile = document.getElementById('logos-mx').value + '% ' + document.getElementById('logos-my').value + '%';
             socialData.logos[selectedLogo].scale_mobile = parseInt(document.getElementById('logos-mscale').value);
             var result = await ghSave('content/social_proof.json', JSON.stringify(socialData, null, 2) + '\n', socialSha, 'Ajuste posição logo via painel visual');
-            socialSha = result.content.sha;
+            if (result.content) socialSha = result.content.sha;
             setStatus('ok', 'Logo salvo!', 'status-logos');
         } catch(e) {
             setStatus('err', e.message, 'status-logos');
@@ -762,7 +770,7 @@
             showsData.shows[selectedBanner].banner_position = document.getElementById('banners-x').value + '% ' + document.getElementById('banners-y').value + '%';
             showsData.shows[selectedBanner].banner_position_mobile = document.getElementById('banners-mx').value + '% ' + document.getElementById('banners-my').value + '%';
             var result = await ghSave('content/shows.json', JSON.stringify(showsData, null, 2) + '\n', showsSha, 'Ajuste posição banner via painel visual');
-            showsSha = result.content.sha;
+            if (result.content) showsSha = result.content.sha;
             setStatus('ok', 'Banner salvo!', 'status-banners');
         } catch(e) {
             setStatus('err', e.message, 'status-banners');

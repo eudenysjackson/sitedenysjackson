@@ -75,6 +75,25 @@ const server = http.createServer(async function(req, res) {
         return;
     }
 
+    if (req.url === '/api/content' && req.method === 'POST') {
+        try {
+            var payload = JSON.parse(await readBody(req));
+            var editable = ['content/site.json', 'content/gallery.json', 'content/social_proof.json', 'content/shows.json'];
+            if (!editable.includes(payload.path) || !payload.data || typeof payload.data !== 'object' || Array.isArray(payload.data)) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: 'Arquivo ou conteúdo não permitido.' }));
+                return;
+            }
+            fs.writeFileSync(path.join(ROOT, payload.path), JSON.stringify(payload.data, null, 2) + '\n', 'utf8');
+            res.writeHead(200, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ ok: true }));
+        } catch (error) {
+            res.writeHead(400, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Conteúdo JSON inválido.' }));
+        }
+        return;
+    }
+
     if (req.url === '/api/gallery' && req.method === 'POST') {
         try {
             var body = await readBody(req);
