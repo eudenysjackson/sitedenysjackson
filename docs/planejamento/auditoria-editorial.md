@@ -33,9 +33,9 @@ O mídia kit tem 71.087.912 bytes (cerca de 67,8 MiB). Para download no site, pr
 | Vídeos | Dois vídeos Dangerous | Seis MOV Bad e quatro links Instagram na p. 5 do kit | Selecionar conteúdo atual; decidir edição/hospedagem antes de incorporar |
 | Imprensa | Logos com alguns links, incluindo FUNARJ ligada a matéria de terceiro | Seis veículos contextualizados e links no kit | Separar imprensa, espaços e parceiros; não sugerir endosso |
 | Material profissional | Sem central dedicada | PDFs, fotos e vídeos organizados | Criar página com HTML e downloads identificados |
-| E-mail | contato@denysjackson.com.br | contato@denysjackson.com | Confirmar; manter decisão pendente |
-| Equipe | Sem página detalhada de créditos | Kit: Júlia Maria; ficha: Júlia Mariz; cargos também diferem | Confirmar nomes/cargos, não copiar equipe antiga |
-| Corpo de baile | Apresentação genérica | Ficha 2–8; mapa de palco 3–6 | Pode ser diferença entre formato e desenho-base; pedir confirmação |
+| E-mail | contato@denysjackson.com.br | contato@denysjackson.com | Usuário confirmou `.com.br`; usar esse endereço no novo site |
+| Equipe | Sem página detalhada de créditos | Kit: Júlia Maria; ficha: Júlia Mariz; cargos também diferem | Usuário confirmou prioridade da ficha: Júlia Vieira coordenadora e Júlia Mariz assistente |
+| Corpo de baile | Apresentação genérica | Ficha 2–8; mapa de palco 3–6 | Usuário confirmou prioridade da ficha: 2–8; mapa fica como referência de desenho-base |
 | Redes | Sandwiche /denysjackson; Instagram @denysjacksonn | Kit /denysjacksonn; ficha imprime @denysjackson | Conferir destinos antes de unificar |
 | Prêmio | Biografia menciona prêmios sem contexto | Kit p. 7: 1º lugar Cover Music Universe Awards 2022 | Confirmar nome/contexto; correção do usuário impede chamar internacional |
 | Agenda | 14/11/2026, Mário Lago, horário vazio | PDFs não fornecem serviço confirmado desse evento | Confirmar horário/status e demais informações |
@@ -62,3 +62,12 @@ Os testes de build do repositório já passaram na auditoria anterior. Isso não
 O workflow em `.github/workflows/pages.yml` executa deploy em push para main e permite disparo manual. Além de `admin/config.yml`, `admin/cms-extensions.js`, `admin/adjust.html` e `admin/gallery-upload.html` fixam main para escrita. Reconhecer modo local só por localhost/127.0.0.1 não protege um domínio remoto de homologação.
 
 Esta branch contém documentos; nenhuma configuração de CMS, DNS, Pages ou workflow foi alterada. Não usar o CMS remoto como homologação até implementar e validar a seleção segura de branch. Proteções de branch/aprovação de ambiente no GitHub ainda precisam ser verificadas. O push de planejamento não deve ser interpretado como homologação funcional ou autorização de publicação.
+
+
+## Atualização após respostas do usuário
+
+O contato e a equipe deixaram de ser bloqueadores: adotar contato@denysjackson.com.br e a ficha técnica 2026 como referência prioritária. A referência https://tributoreidopop.com.br/ foi fornecida somente para distribuição de conteúdo e arquitetura. A identidade cromática e tipográfica de Denys permanece. Essas decisões afetam o planejamento; não houve atualização dos PDFs, do conteúdo da aplicação ou do site publicado.
+
+## Referência de arquitetura — limite desta consulta
+
+O usuário confirmou https://tributoreidopop.com.br/ somente como referência de distribuição e arquitetura, preservando cores e tipografia próprias. A leitura automática inicial retornou HTTP 503; a consulta HTML padrão às variantes com e sem www retornou HTTP 406. A arquitetura desse site ainda não foi inspecionada; o mapa de páginas deste planejamento decorre do briefing e dos documentos de Denys. Para a comparação específica com a referência, será necessário acesso em navegador ou capturas/PDF fornecidos pelo usuário. Não houve cópia de conteúdo ou suposição sobre suas páginas.

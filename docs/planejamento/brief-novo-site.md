@@ -65,7 +65,7 @@ Esse roteiro e as frases são propostas editoriais para revisão, não texto pub
 
 Inter; roxo profundo #1A1040, índigo #4338CA, dourado #C9A96E, azul-cinza #E0E6ED e grafite #1F2937. A identidade recuperada do chat também aparece no material 2026. Usar palco, iluminação e fotografias reais; não copiar álbuns, turnês ou o futuro site de referência. Evitar efeitos que ocultem conteúdo ou comprometam leitura.
 
-As fotos oficiais examinadas são predominantemente verticais. Para desktop, considerar texto e foto lado a lado ou composição que preserve o enquadramento; para celular, manter rosto/corpo e CTA legíveis. Avaliar os originais e crédito do fotógrafo antes de produzir os recortes finais. Referência visual do usuário ainda pendente.
+As fotos oficiais examinadas são predominantemente verticais. Para desktop, considerar texto e foto lado a lado ou composição que preserve o enquadramento; para celular, manter rosto/corpo e CTA legíveis. Avaliar os originais e crédito do fotógrafo antes de produzir os recortes finais. Referência fornecida: https://tributoreidopop.com.br/. Por instrução expressa do usuário, estudar SOMENTE a distribuição de conteúdo e a arquitetura de navegação; manter cores e tipografia próprias de Denys. Não copiar textos, imagens, identidade ou código.
 
 ## Sequência e critérios de passagem
 
@@ -76,13 +76,16 @@ As fotos oficiais examinadas são predominantemente verticais. Para desktop, con
 5. **Homologação:** testes funcionais, teclado, leitor de tela, responsividade, build, conteúdo, links, desempenho e SEO. Testes de envio de formulário só com coordenação explícita, por gerarem comunicação externa.
 6. **Versão candidata:** apresentar mudanças e pendências; preparar rollback. Publicar apenas com autorização explícita para a versão revisada. Sincronizar trabalho não substitui essa autorização.
 
-## Decisões pendentes
+## Confirmações do usuário nesta sessão
 
-- E-mail oficial: PDFs `.com` ou site `.com.br`.
-- Equipe: confirmar Júlia Mariz/Maria, cargos e composição variável; para conteúdo público usar descrição genérica enquanto a divergência permanecer.
-- Endereço do site de referência visual.
+- E-mail oficial para o novo site: **contato@denysjackson.com.br**. A divergência dos PDFs fica registrada para revisão futura dos materiais; nenhum PDF original foi modificado.
+- Equipe: **priorizar a ficha técnica 2026**. Júlia Vieira como coordenadora de produção, Júlia Mariz como assistente e formação variável de 2 a 8 bailarinos. O mapa 3–6 é referência de desenho-base, não substitui a faixa da ficha técnica.
+- Site de referência: **https://tributoreidopop.com.br/**. Uso restrito à distribuição e arquitetura, conforme esclarecimento explícito do usuário. Cores e tipografia permanecem as nossas.
+
+## Decisões ainda pendentes
+
 - Créditos/autorização de uso das fotos; seleção de vídeo final e sua hospedagem. Nenhum vídeo foi assistido integralmente nesta etapa.
 - Confirmar serviço e situação da apresentação de 14/11/2026 antes de inseri-la no novo site.
 - Confirmar nome oficial e contexto da premiação; não usar “internacional”.
 
-As perguntas sobre e-mail, equipe e referência já foram apresentadas ao usuário. O planejamento independente continua; dados divergentes não serão preenchidos por suposição.
+As confirmações acima substituem as dúvidas iniciais de contato, equipe e referência; não perguntar novamente. Dados ainda não confirmados não serão preenchidos por suposição.

@@ -7,3 +7,4 @@
 - A development branch alone does not isolate the CMS. The existing CMS and custom admin panels target `main`; configure and validate their development targets before using them in remote homologation. Never test writes against production.
 - Do not commit private chat exports, credential values, raw certificates, or the full production media archive. Keep only relevant planning sources and approved public assets in the repository.
 - Keep planning documents distinct from published pages. At this stage, `docs/planejamento/` holds proposals; it does not approve final content, visual design, or deployment.
+- Confirmed editorial decisions: use `contato@denysjackson.com.br`; prioritize the 2026 technical/team sheet for credits and a variable cast of 2–8 dancers. The reference `https://tributoreidopop.com.br/` is for content distribution and navigation architecture only; preserve Denys's existing colors and typography.

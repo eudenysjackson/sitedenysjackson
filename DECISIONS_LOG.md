@@ -51,3 +51,4 @@
 - **Motivo**: o usuário exige desenvolvimento/homologação e autorização explícita antes de publicar o site oficial.
 - **Limite**: esta decisão não isola por si só o CMS atual, cujos destinos de escrita ainda usam main; essa separação precisa ser implementada e validada antes de edição remota em homologação.
 - **Fontes**: materiais profissionais 2026 do Drive e chat histórico, diferenciando correções do usuário de propostas antigas do assistente. Divergências de contato/equipe ficam pendentes.
+- **Confirmações editoriais do usuário**: e-mail contato@denysjackson.com.br; prioridade da ficha técnica 2026 para equipe; referência tributoreidopop.com.br restrita à arquitetura/distribuição, mantendo cores e tipografia próprias.
