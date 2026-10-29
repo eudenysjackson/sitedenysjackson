@@ -1,71 +1,77 @@
-/* Home prototype: progressive enhancement; the built page is readable without JS. */
+/* Shared interactions for the development review; no production CMS/network writes. */
 (function () {
     'use strict';
-    document.documentElement.classList.add('home-js');
-    let homeData = null;
-    const menu = document.getElementById('home-nav');
-    const toggle = document.getElementById('home-menu-toggle');
-    toggle.hidden = false;
-    function closeMenu() {
-        menu.classList.remove('is-open');
+    document.documentElement.classList.add('review-js');
+    const copy = JSON.parse(document.getElementById('review-copy').textContent);
+    registerPageTranslations('home', copy);
+    initLanguage();
+    const nav = document.getElementById('navbar');
+    const home = document.body.classList.contains('review-home');
+    const top = document.getElementById('back-to-top');
+    function syncScroll() {
+        nav.classList.toggle('scrolled', !home || window.scrollY > 50);
+        top.classList.toggle('visible', window.scrollY > 500);
+    }
+    window.addEventListener('scroll', syncScroll, { passive: true });
+    syncScroll();
+    top.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const overlay = document.getElementById('mobile-overlay');
+    const close = document.getElementById('sidebar-close');
+    const surroundings = [nav, document.querySelector('main'), document.querySelector('footer'), top];
+    function closeMenu(restoreFocus = true) {
+        menu.hidden = true;
+        overlay.hidden = true;
         toggle.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+        surroundings.forEach(node => { node.inert = false; });
+        if (restoreFocus) toggle.focus();
     }
     toggle.addEventListener('click', () => {
-        const open = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(open));
-        menu.classList.toggle('is-open', open);
+        menu.hidden = false;
+        overlay.hidden = false;
+        toggle.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+        surroundings.forEach(node => { node.inert = true; });
+        close.focus();
     });
-    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+    close.addEventListener('click', () => closeMenu());
+    overlay.addEventListener('click', () => closeMenu());
+    menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu(false)));
     document.addEventListener('keydown', event => {
-        if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-            closeMenu();
-            toggle.focus();
+        if (menu.hidden) return;
+        if (event.key === 'Escape') closeMenu();
+        if (event.key === 'Tab') {
+            const items = [...menu.querySelectorAll('a,button')];
+            const first = items[0], last = items[items.length - 1];
+            if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+            else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
         }
     });
-    function syncLanguageButtons() {
-        if (homeData) document.querySelectorAll('[data-home-image]').forEach(image => {
-            const key = image.dataset.homeImage + '_alt';
-            image.alt = homeData.copy[key][currentLang] || homeData.copy[key].pt;
-        });
+    window.addEventListener('resize', () => { if (window.innerWidth >= 1100 && !menu.hidden) closeMenu(false); });
+    function syncLanguage() {
         document.querySelectorAll('.lang-btn').forEach(button => {
             button.setAttribute('aria-pressed', String(button.dataset.lang === currentLang));
         });
     }
-    document.querySelectorAll('.lang-btn').forEach(button => {
-        button.addEventListener('click', () => { setLanguage(button.dataset.lang); syncLanguageButtons(); });
-    });
-    Promise.all([
-        fetch('../content/home.json', { cache: 'no-cache' }).then(response => {
-            if (!response.ok) throw new Error('Home content unavailable');
-            return response.json();
-        }),
-        fetch('../content/site.json', { cache: 'no-cache' }).then(response => response.ok ? response.json() : null).catch(() => null)
-    ]).then(([data, site]) => {
-        homeData = data;
-        registerPageTranslations('home', data.copy);
-        document.querySelectorAll('[data-home-image]').forEach(image => {
-            const value = data.images[image.dataset.homeImage];
-            if (!String(value).includes('..') && /^\/images\/[\w .()\/-]+\.(?:jpe?g|png|webp)$/i.test(value || '')) image.src = '..' + encodeURI(value);
-        });
-        document.querySelectorAll('[data-home-material]').forEach(link => {
-            try {
-                const url = new URL(data.materials[link.dataset.homeMaterial]);
-                if (url.protocol === 'https:' && url.hostname === 'drive.google.com') link.href = url.href;
-            } catch { /* Retain the pre-rendered link. */ }
-        });
-        if (site && /^[^\s<>"'@]+@[^\s<>"'@]+$/.test(site.email || '')) {
-            document.querySelectorAll('[data-home-contact="email"]').forEach(link => {
-                link.href = 'mailto:' + site.email;
-                link.textContent = site.email;
-            });
-        }
-        if (site && site.phone) {
-            let digits = site.phone.replace(/\D/g, '');
-            if (!digits.startsWith('55')) digits = '55' + digits;
-            document.querySelectorAll('[data-home-contact="whatsapp"]').forEach(link => { link.href = 'https://wa.me/' + digits; });
-        }
-        initLanguage();
-        syncLanguageButtons();
-        document.querySelectorAll('.lang-btn').forEach(button => { button.disabled = false; });
-    }).catch(() => { /* Keep the complete Portuguese fallback if a request fails. */ });
+    document.querySelectorAll('.lang-btn').forEach(button => button.addEventListener('click', () => {
+        setLanguage(button.dataset.lang);
+        syncLanguage();
+    }));
+    syncLanguage();
+    const dialog = document.getElementById('lightbox');
+    if (dialog) {
+        const image = document.getElementById('lightbox-img');
+        const caption = document.getElementById('lightbox-caption');
+        document.querySelectorAll('[data-photo]').forEach(button => button.addEventListener('click', () => {
+            image.src = button.dataset.photo;
+            image.alt = button.dataset.caption;
+            caption.textContent = button.dataset.caption;
+            dialog.showModal();
+        }));
+        document.getElementById('lightbox-close').addEventListener('click', () => dialog.close());
+        dialog.addEventListener('click', event => { if (event.target === dialog) dialog.close(); });
+        dialog.addEventListener('close', () => { image.removeAttribute('src'); });
+    }
 })();

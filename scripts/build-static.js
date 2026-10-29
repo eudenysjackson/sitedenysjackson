@@ -100,5 +100,5 @@ function build(output = path.join(ROOT, '_site')) {
     console.log('Static HTML generated: ' + data.gallery.photos.length + ' photos; CMS content included.');
     return html;
 }
-if (require.main === module) build();
 module.exports = { build, render, element };
+if (require.main === module) build();

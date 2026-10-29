@@ -42,65 +42,70 @@ async function main() {
         const page = await context.newPage();
         const errors = [];
         page.on('pageerror', error => errors.push(error.message));
-        const url = 'http://127.0.0.1:' + port + '/_site/prototipo/index.html';
-        await page.goto(url);
-        await page.getByRole('button', { name: 'EN', exact: true }).waitFor();
-        await page.waitForFunction(() => !document.querySelector('[data-lang="en"]').disabled);
-        await page.evaluate(() => document.fonts.ready);
-        assert(await page.evaluate(() => [...document.fonts].some(font => font.family === 'Inter' && font.status === 'loaded')));
-        for (const width of [320, 390, 768, 1440]) {
-            await page.setViewportSize({ width, height: 1000 });
-            assert(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth), 'Overflow at ' + width);
+        const base = 'http://127.0.0.1:' + port + '/_site/prototipo/';
+        const routes = require('./build-home-prototype').ROUTES;
+        const localErrors = [];
+        page.on('response', response => { if (response.status() >= 400) localErrors.push(response.url()); });
+        for (const [route] of routes) {
+            await page.goto(base + route);
+            await page.evaluate(() => document.fonts.ready);
+            assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1, route);
+            for (const width of [320,390,768,1440]) {
+                await page.setViewportSize({ width, height: 1000 });
+                assert(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), route + ' overflow at ' + width);
+            }
+            assert.equal(await page.locator('.review-desktop-nav [aria-current="page"]').count(), 1);
+            await page.screenshot({ path: path.join(artifacts, route.replace('.html','') + '-desktop.png'), fullPage: true });
+            await page.setViewportSize({ width:390, height:844 });
+            await page.screenshot({ path: path.join(artifacts, route.replace('.html','') + '-mobile.png'), fullPage: true });
         }
-        await page.setViewportSize({ width: 1440, height: 1000 });
-        assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1);
-        assert.equal(await page.locator('[data-home-material]').count(), 5);
-        // Reuse the original glass treatment, including translucency and blur.
-        const glass = await page.locator('.artist > .glass').evaluate(node => {
+        await page.goto(base + 'denys-jackson.html');
+        await page.setViewportSize({ width:1440, height:1000 });
+        const glass = await page.locator('#sobre .glass-strong').evaluate(node => {
             const css = getComputedStyle(node);
-            return { background: css.backgroundColor, blur: css.backdropFilter, radius: css.borderRadius };
+            return { background:css.backgroundColor, blur:css.backdropFilter, radius:css.borderRadius };
         });
-        assert.equal(glass.background, 'rgba(255, 255, 255, 0.55)');
-        assert.equal(glass.blur, 'blur(16px)');
-        assert.equal(glass.radius, '20px');
-        assert((await page.locator('.home-brand img').getAttribute('src')).endsWith('logopreta.png'));
-        const images = await page.locator('[data-home-image]').evaluateAll(nodes => nodes.every(image => image.complete && image.naturalWidth > 0));
-        assert(images, 'Local photographs must load');
-        await page.locator('.bad-photo').scrollIntoViewIfNeeded();
-        await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-        await page.evaluate(() => window.scrollTo(0, 0));
-        await page.screenshot({ path: path.join(artifacts, 'home-desktop.png') });
-        await page.screenshot({ path: path.join(artifacts, 'home-desktop-completa.png'), fullPage: true });
-        await page.locator('#artista').scrollIntoViewIfNeeded();
-        await page.screenshot({ path: path.join(artifacts, 'home-vidro.png') });
-        await page.evaluate(() => window.scrollTo(0, 0));
-        await page.getByRole('button', { name: 'EN', exact: true }).click();
+        assert.deepEqual(glass, { background:'rgba(255, 255, 255, 0.72)', blur:'blur(20px)', radius:'20px' });
+        assert(await page.evaluate(() => [...document.fonts].some(font => font.family === 'Inter' && font.status === 'loaded')));
+        await page.locator('.review-desktop-nav [data-lang="en"]').click();
         assert.equal(await page.locator('html').getAttribute('lang'), 'en');
-        assert.equal(await page.locator('[data-i18n="home.hire"]').first().textContent(), 'Book the show');
+        await page.locator('.review-desktop-nav a[href="imprensa-contratacao.html"]').click();
+        await page.waitForFunction(() => document.documentElement.lang === 'en');
+        assert.equal(await page.locator('html').getAttribute('lang'), 'en');
+        assert.equal(await page.locator('[data-home-material]').count(), 5);
         await page.reload();
         await page.waitForFunction(() => document.documentElement.lang === 'en');
-        await page.getByRole('button', { name: 'ES', exact: true }).click();
-        assert.equal(await page.locator('[data-i18n="home.hire"]').first().textContent(), 'Contrata el espectáculo');
-        await page.getByRole('button', { name: 'PT', exact: true }).click();
-        await page.setViewportSize({ width: 390, height: 844 });
-        const toggle = page.locator('#home-menu-toggle');
+        assert.equal(await page.locator('html').getAttribute('lang'), 'en');
+        await page.locator('.review-desktop-nav [data-lang="es"]').click();
+        assert.equal(await page.getByRole('heading', {level:1}).textContent(), 'Prensa y contratación');
+        await page.locator('.review-desktop-nav [data-lang="pt"]').click();
+        await page.setViewportSize({ width:390, height:844 });
+        const toggle = page.locator('#menu-toggle');
         await toggle.click();
         assert.equal(await toggle.getAttribute('aria-expanded'), 'true');
+        await page.keyboard.press('Shift+Tab');
+        assert.equal(await page.evaluate(() => document.activeElement.dataset.lang), 'es', 'Sidebar focus is contained');
         await page.keyboard.press('Escape');
         assert.equal(await toggle.getAttribute('aria-expanded'), 'false');
         assert(await toggle.evaluate(node => node === document.activeElement));
-        await page.getByRole('heading', { level: 1 }).click();
-        await page.screenshot({ path: path.join(artifacts, 'home-mobile.png') });
-        const noJs = await browser.newContext({ javaScriptEnabled: false });
+        await page.goto(base + 'na-ponta-dos-pes.html');
+        const photo = page.locator('[data-photo]').first();
+        await photo.click();
+        assert(await page.locator('#lightbox').evaluate(node => node.open));
+        await page.keyboard.press('Escape');
+        assert(await photo.evaluate(node => node === document.activeElement));
+        const noJs = await browser.newContext({ javaScriptEnabled:false });
         const staticPage = await noJs.newPage();
-        await staticPage.goto(url);
-        assert.equal(await staticPage.getByRole('heading', { level: 1 }).count(), 1);
-        assert.equal(await staticPage.locator('[data-home-material]').count(), 5);
-        assert((await staticPage.locator('body').innerText()).includes('Performance com fonogramas'));
+        for (const [route] of routes) {
+            await staticPage.goto(base + route);
+            assert.equal(await staticPage.getByRole('heading', {level:1}).count(), 1);
+            assert(await staticPage.locator('main').innerText());
+        }
         await noJs.close();
         assert.deepEqual(errors, []);
-        assert.deepEqual(external, [], 'Prototype must not depend on third-party resources to render');
-        console.log('OK: desktop/mobile, Inter local, images, PT/EN/ES persistence, keyboard menu and no-JS content.');
+        assert.deepEqual(external, [], 'Rendering must use local resources');
+        assert.deepEqual(localErrors, [], 'All local resources must exist');
+        console.log('OK: 7 pages at 4 widths, original glass, local Inter, cross-page languages, keyboard sidebar, gallery and no-JS content.');
         console.log('Screenshots: ' + artifacts);
     } finally {
         if (browser) await browser.close();

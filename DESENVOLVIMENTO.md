@@ -68,3 +68,16 @@ node scripts/test-home-browser.js
 ```
 
 A versão pré-renderizada fica em `/_site/prototipo/`; gere novamente após edições do CMS. Os screenshots desktop e celular são gerados fora do checkout no diretório externo de ferramentas, em `test-results/home`.
+
+## Revisão atual: sete páginas com o visual original
+
+As duas primeiras propostas visuais foram rejeitadas. A revisão atual reutiliza os componentes do site existente; veja `docs/planejamento/releitura-historico.md`. Abra `/prototipo/index.html` no servidor local e navegue pelo menu. A coleção do CMS chama-se **Novo site — desenvolvimento**. Após uma edição, regenere os snapshots:
+
+```bash
+node scripts/build-home-prototype.js --source
+node scripts/build-static.js
+```
+
+A versão gerada fica em `/_site/prototipo/index.html`. Textos não são atualizados por fetch nessa revisão. Fotos de capa e biografia continuam vindo das respectivas coleções originais. O CSS original foi preservado; utilitários Tailwind 3.4.17 compilados localmente estão versionados para dispensar CDN na revisão.
+
+Atualização de cobrança: o suporte confirmou o desbloqueio no tíquete #4925448 e a execução 40925939179 do Actions passou. O registro anterior de bloqueio acima é histórico. Validação de desenvolvimento continua sem deploy.

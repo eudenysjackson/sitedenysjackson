@@ -1,3 +1,5 @@
+> **Superado:** este documento descreve a primeira proposta e a recoloração posterior, ambas rejeitadas pelo usuário. A revisão atual, com sete páginas e componentes originais, está documentada em [releitura-historico.md](releitura-historico.md). Não usar os screenshots anteriores como revisão atual.
+
 # Primeira Home — revisão em desenvolvimento
 
 A Home foi implementada em `/prototipo/` para avaliação antes de substituir a página atual. O arquivo raiz `index.html` e os JSONs anteriores de conteúdo não foram alterados. Não houve publicação, merge em main, alteração de domínio ou uso do painel oficial.

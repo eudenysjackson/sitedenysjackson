@@ -46,7 +46,7 @@ Denys é a marca do artista; Na Ponta dos Pés é o espetáculo; Michael Jackson
 | Imprensa & Contratação `/imprensa-contratacao/` | Release em HTML, downloads, fotos de imprensa, sinopse, ficha e rider | Falar com produção | Pasta profissional 2026 |
 | Contato `/contato/` | E-mail confirmado, WhatsApp, redes e formulário acessível | Contatar produção | Dados a confirmar |
 
-Rotas são propostas, ainda não implementadas. Evitar duplicação entre imprensa e contato. Fotos/vídeos ficam inicialmente no espetáculo e mídia; uma galeria independente só será criada se o volume e a navegação justificarem. Eventos individuais exigem serviço completo, local, horário, status e conteúdo próprios. Não criar páginas vazias para SEO.
+O mapa histórico continua orientando a arquitetura. A revisão atual implementa sete páginas HTML em /prototipo/, com extensão .html; as URLs de produção ainda não foram migradas. Ver releitura-historico.md. Evitar duplicação entre imprensa e contato. Fotos/vídeos ficam inicialmente no espetáculo e mídia; uma galeria independente só será criada se o volume e a navegação justificarem. Eventos individuais exigem serviço completo, local, horário, status e conteúdo próprios. Não criar páginas vazias para SEO.
 
 ## Home: roteiro para o primeiro protótipo
 
@@ -91,3 +91,7 @@ As fotos oficiais examinadas são predominantemente verticais. Para desktop, con
 - Confirmar nome oficial e contexto da premiação; não usar “internacional”.
 
 As confirmações acima substituem as dúvidas iniciais de contato, equipe e referência; não perguntar novamente. Dados ainda não confirmados não serão preenchidos por suposição.
+
+## Correção após a segunda revisão visual
+
+O usuário rejeitou também a recoloração do protótipo: preservar a composição original e dividir as páginas tem prioridade. Home sem números de bailarinos, carga horária ou ficha técnica. Reutilizar os componentes originais; leitura online do release e da sinopse na área de imprensa. O roteiro de Home acima é histórico e não exige comprimir todos os detalhes numa única página. Ver [releitura-historico.md](releitura-historico.md).

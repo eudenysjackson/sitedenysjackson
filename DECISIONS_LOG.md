@@ -75,3 +75,7 @@
 ## DEC-011 — Preservar o vidro original (2026-10-29)
 
 O usuário rejeitou a primeira proposta visual por perder o vidro do site. A Home de desenvolvimento passa a reutilizar diretamente as classes de `css/style.css`, com fundo azul-cinza, Inter e superfícies claras translúcidas. A evolução será na arquitetura e no conteúdo, preservando a estética existente. Não houve publicação.
+
+## DEC-012 — Reorganizar o original em páginas, sem redesenhá-lo (2026-10-29)
+
+O usuário rejeitou também a recoloração do protótipo e questionou a exposição do número de bailarinos. A releitura do histórico confirma a prioridade de preservar componentes e distribuir o conteúdo por páginas. A revisão reutiliza diretamente HTML/CSS e imagens do original, retira números técnicos da Home e implementa sete páginas reais com release/sinopse online. A ficha técnica é fonte profissional, não uma lista obrigatória de destaques promocionais. Ver docs/planejamento/releitura-historico.md.

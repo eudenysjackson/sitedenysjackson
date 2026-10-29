@@ -165,3 +165,17 @@ Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua
 - `prototipo/index.html` carrega `css/style.css` antes de `css/home.css` e reutiliza as classes de vidro originais, sem alterar a página raiz ou seu CSS compartilhado.
 - `css/home.css` cuida do layout e da navegação da proposta clara. `content/home.json` usa títulos diretos em PT/EN/ES.
 - `scripts/test-home-browser.js` confere também transparência, blur e raio do vidro original, logo preta e screenshot da seção Sobre.
+
+## Revisão com páginas separadas e componentes originais (2026-10-29)
+
+A composição anterior foi rejeitada; ver `docs/planejamento/releitura-historico.md`.
+
+- `scripts/build-home-prototype.js`: monta sete páginas de revisão usando navegação, biografia e rodapé originais, CMS JSON e textos filtrados por público. `--source` atualiza `prototipo/`; build normal gera `_site/prototipo/`.
+- `prototipo/{index,denys-jackson,na-ponta-dos-pes,agenda,na-midia,imprensa-contratacao,contato}.html`: documentos navegáveis, noindex; imprensa inclui release/sinopse HTML.
+- `css/home.css`: somente adaptações para navegação entre páginas, acessibilidade, Inter local e galeria; `css/style.css` original permanece intacto.
+- `css/review-utilities.css`: utilitários do original compilados com Tailwind 3.4.17; `scripts/review-tailwind.config.js` e `scripts/review-utilities.css`: configuração/entrada reproduzível, sem dependência npm na aplicação.
+- `js/home.js`: idiomas a partir de JSON incorporado, menu acessível, navegação e ampliação da galeria. Sem fetch de CMS nem gravação remota.
+- `content/home.json`: textos compartilhados e links profissionais; fotos vêm das fontes CMS originais. A coleção mantém o identificador home_prototype e passa a se chamar Novo site — desenvolvimento.
+- `scripts/test-home-prototype.js` / `scripts/test-home-browser.js`: sete páginas, distribuição editorial, geometria original, links, três idiomas, quatro larguras, teclado e no-JS.
+
+- `scripts/export-review.js`: exporta sete HTMLs autossuficientes para uma pasta externa de revisão; incorpora assets locais e mantém navegação por arquivos irmãos. O ZIP é artefato de entrega externo, sem deploy e sem dados privados.

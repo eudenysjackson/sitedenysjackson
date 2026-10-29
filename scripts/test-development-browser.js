@@ -74,7 +74,7 @@ async function main() {
         console.log('OK: login local, widget personalizado, edição CMS e persistência após reload.');
 
         await page.goto('http://localhost:8080/admin/#/collections/home_prototype');
-        await page.getByText('Textos e imagens da nova Home', { exact: true }).click();
+        await page.getByText('Textos e imagens do novo site', { exact: true }).click();
         await page.getByText('Textos por idioma', { exact: true }).filter({ visible: true }).last().getByTestId('expand-button').click();
         await page.getByText('Ir para o conteúdo', { exact: true }).filter({ visible: true }).last().getByTestId('expand-button').click();
         await page.getByLabel('Português', { exact: true }).filter({ visible: true }).first().fill('Ir ao conteúdo de teste');
