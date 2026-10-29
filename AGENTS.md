@@ -1,0 +1,9 @@
+# Development and publication
+
+- All site changes must be developed and reviewed in development/homologation. Publishing the official site requires explicit user authorization for the reviewed version.
+- Use `development/novo-site` for the current redesign. Sync authorized work to this remote branch for continuity across machines. Do not push or merge into `main`, run a deployment workflow, or change production Pages/DNS without publication authorization.
+- Each cloud task is already isolated. Use the existing checkout; do not create a worktree unless explicitly requested.
+- Read `PROJECT_RULES.md`, `ARCHITECTURE_MAP.md` and `docs/planejamento/brief-novo-site.md` before site work. Follow the linked editorial audit and pending questions; do not invent missing facts or treat historic assistant suggestions as user approvals.
+- A development branch alone does not isolate the CMS. The existing CMS and custom admin panels target `main`; configure and validate their development targets before using them in remote homologation. Never test writes against production.
+- Do not commit private chat exports, credential values, raw certificates, or the full production media archive. Keep only relevant planning sources and approved public assets in the repository.
+- Keep planning documents distinct from published pages. At this stage, `docs/planejamento/` holds proposals; it does not approve final content, visual design, or deployment.

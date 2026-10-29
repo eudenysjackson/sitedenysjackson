@@ -118,3 +118,14 @@
 | Data | Alteração |
 |---|---|
 | 2026-04-11 | Criação inicial do projeto: index.html, css/style.css, js/main.js, js/i18n.js, content/*.json, admin/ |
+
+
+## Planejamento do novo site (homologação, 2026-10-29)
+
+- `docs/planejamento/brief-novo-site.md`: fontes, regras de operação, mapa de páginas, roteiro da Home e sequência de homologação.
+- `docs/planejamento/auditoria-editorial.md`: comparação entre site e material profissional 2026, evidências e divergências pendentes.
+- `docs/planejamento/inventario-imprensa.csv`: inventário das 51 entradas da pasta profissional, links e grau de inspeção.
+- `docs/planejamento/selecao-midias.md`: fotografias candidatas, vídeos identificados e fontes de imprensa para revisão.
+
+Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua apontando para main e precisa ser isolado antes de uso em homologação remota. O build público atual copia uma lista explícita de ativos; não inclui `docs/`.
+- `AGENTS.md`: regras persistentes de desenvolvimento, sincronização e autorização de publicação, incluindo isolamento do CMS.

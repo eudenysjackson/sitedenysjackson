@@ -44,3 +44,10 @@
 - **Por quê**: GitHub Pages não suporta server-side. mailto é a solução mais simples sem dependências externas.
 - **Consequências**: Depende do cliente de email do visitante. Não funciona se não tiver email configurado.
 - **Revisar quando**: Substituir por Formspree ou similar quando quiser envio automático
+
+### DEC-007 — Planejamento e sincronização separados da produção
+- **Data**: 2026-10-29
+- **Decisão**: registrar inventário, briefing e revisão editorial em `development/novo-site`; sincronizar a branch remota sem merge em main ou deploy.
+- **Motivo**: o usuário exige desenvolvimento/homologação e autorização explícita antes de publicar o site oficial.
+- **Limite**: esta decisão não isola por si só o CMS atual, cujos destinos de escrita ainda usam main; essa separação precisa ser implementada e validada antes de edição remota em homologação.
+- **Fontes**: materiais profissionais 2026 do Drive e chat histórico, diferenciando correções do usuário de propostas antigas do assistente. Divergências de contato/equipe ficam pendentes.
