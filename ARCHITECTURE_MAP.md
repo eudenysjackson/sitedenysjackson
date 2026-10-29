@@ -179,3 +179,7 @@ A composição anterior foi rejeitada; ver `docs/planejamento/releitura-historic
 - `scripts/test-home-prototype.js` / `scripts/test-home-browser.js`: sete páginas, distribuição editorial, geometria original, links, três idiomas, quatro larguras, teclado e no-JS.
 
 - `scripts/export-review.js`: exporta sete HTMLs autossuficientes para uma pasta externa de revisão; incorpora assets locais e mantém navegação por arquivos irmãos. O ZIP é artefato de entrega externo, sem deploy e sem dados privados.
+
+## Download da revisão (2026-10-29)
+
+- `docs/revisao/site-html.zip`: pacote das sete páginas HTML autossuficientes, com licença da fonte e instruções de abertura. Disponível na branch de desenvolvimento para download direto pelo GitHub. É snapshot para revisão; não é o site oficial nem é copiado pelo build público. Regenerar com scripts/export-review.js após uma nova versão visual.
