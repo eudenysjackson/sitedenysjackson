@@ -17,7 +17,7 @@ A arquitetura desta etapa é uma navegação por seções para revisar a Home. A
 
 ## Identidade e conteúdo
 
-Paleta própria preservada: roxo #1A1040, índigo #4338CA, dourado #C9A96E, grafite e creme. Inter é servida localmente no protótipo, com sua licença OFL. Foram reutilizadas três fotos já otimizadas da galeria, sem modificar arquivos de imagem.
+A primeira composição escura foi rejeitada pelo usuário. A revisão reutiliza `css/style.css` do site original: fundo azul-cinza em degradê, painéis `.glass` brancos com opacidade 0,55, blur 16px, borda branca e raio de 20px. Cabeçalho translúcido com logo preta, textos grafite, botões índigo e Inter. Foram removidos o título gigante em caixa alta, o ponto decorativo, o arco da foto e os títulos com frases de efeito. Inter é servida localmente no protótipo, com sua licença OFL. Foram reutilizadas três fotos já otimizadas da galeria, sem modificar arquivos de imagem.
 
 Os textos PT/EN/ES, imagens e links de materiais ficam em `content/home.json`. A coleção **Nova Home — desenvolvimento** foi adicionada ao CMS local. `site.json` permanece a fonte dos contatos. Textos vindos do CMS são escapados na renderização estática e no registro de traduções.
 
@@ -50,6 +50,10 @@ A suíte de navegador da Home usa porta temporária, não envia formulários e b
 
 O teste do CMS edita um campo da nova coleção em cópia temporária e compara todos os JSONs originais ao final. Nenhum certificado, exportação de chat ou arquivo bruto do Drive foi adicionado ao repositório.
 
-O Actions remoto continua sujeito ao bloqueio de cobrança já registrado. Não confundir verificações locais com execução bem-sucedida de CI hospedado.
+Na primeira rodada, o Actions remoto estava bloqueado por cobrança. O retorno do suporte abaixo atualiza esse diagnóstico. Verificações locais e execuções remotas continuam sendo evidências distintas.
 
 A rodada final local passou: conteúdo estático/escape, três idiomas, build, 27 testes de isolamento, navegador desktop/mobile e edição da nova coleção no CMS real. O commit deste protótipo usa `[skip ci]` para não repetir as notificações do Actions bloqueado por cobrança; isso não representa uma execução remota aprovada e não altera as definições de testes.
+
+## Retorno do suporte — 29/10/2026
+
+O suporte GitHub confirmou no tíquete #4925448 que não existem cobranças pendentes e que desbloqueou a conta após identificar uma falha antiga de autorização. A confirmação veio por e-mail fornecido pelo usuário; o documento privado não é incluído no repositório. Esta informação substitui o estado anterior de bloqueio, mas não comprova, por si só, execução bem-sucedida de um workflow. A revisão visual pode acionar apenas a validação de desenvolvimento; publicação continua dependendo de autorização.

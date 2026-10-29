@@ -55,6 +55,15 @@ async function main() {
         await page.setViewportSize({ width: 1440, height: 1000 });
         assert.equal(await page.getByRole('heading', { level: 1 }).count(), 1);
         assert.equal(await page.locator('[data-home-material]').count(), 5);
+        // Reuse the original glass treatment, including translucency and blur.
+        const glass = await page.locator('.artist > .glass').evaluate(node => {
+            const css = getComputedStyle(node);
+            return { background: css.backgroundColor, blur: css.backdropFilter, radius: css.borderRadius };
+        });
+        assert.equal(glass.background, 'rgba(255, 255, 255, 0.55)');
+        assert.equal(glass.blur, 'blur(16px)');
+        assert.equal(glass.radius, '20px');
+        assert((await page.locator('.home-brand img').getAttribute('src')).endsWith('logopreta.png'));
         const images = await page.locator('[data-home-image]').evaluateAll(nodes => nodes.every(image => image.complete && image.naturalWidth > 0));
         assert(images, 'Local photographs must load');
         await page.locator('.bad-photo').scrollIntoViewIfNeeded();
@@ -62,6 +71,9 @@ async function main() {
         await page.evaluate(() => window.scrollTo(0, 0));
         await page.screenshot({ path: path.join(artifacts, 'home-desktop.png') });
         await page.screenshot({ path: path.join(artifacts, 'home-desktop-completa.png'), fullPage: true });
+        await page.locator('#artista').scrollIntoViewIfNeeded();
+        await page.screenshot({ path: path.join(artifacts, 'home-vidro.png') });
+        await page.evaluate(() => window.scrollTo(0, 0));
         await page.getByRole('button', { name: 'EN', exact: true }).click();
         assert.equal(await page.locator('html').getAttribute('lang'), 'en');
         assert.equal(await page.locator('[data-i18n="home.hire"]').first().textContent(), 'Book the show');

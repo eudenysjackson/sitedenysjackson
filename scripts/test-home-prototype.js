@@ -13,7 +13,7 @@ for (const lang of ['pt', 'en', 'es']) {
     const html = renderHome(source, home, site, lang);
     assert(html.includes(home.copy.hero_description[lang]));
     assert(html.includes('name="robots" content="noindex, nofollow"'));
-    assert(html.includes('<h1>Denys<br>Jackson'));
+    assert(html.includes('<h1>Denys Jackson</h1>'));
     assert.equal((html.match(/data-home-material=/g) || []).length, 5);
     assert(html.includes('mailto:' + site.email));
     assert(!html.includes('2026-11-14'), 'Unconfirmed date must not be advertised');

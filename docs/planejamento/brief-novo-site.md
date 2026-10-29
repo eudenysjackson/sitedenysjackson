@@ -63,6 +63,8 @@ Esse roteiro e as frases são propostas editoriais para revisão, não texto pub
 
 ## Direção visual
 
+Correção expressa do usuário em 29/10/2026: manter a estética de vidro do site existente. A primeira proposta escura foi rejeitada. Reutilizar o fundo azul-cinza e as superfícies translúcidas de `css/style.css`, Inter, navegação clara, bordas brancas sutis e painéis arredondados. Evoluir a distribuição do conteúdo sem substituir a identidade visual por uma nova direção.
+
 Inter; roxo profundo #1A1040, índigo #4338CA, dourado #C9A96E, azul-cinza #E0E6ED e grafite #1F2937. A identidade recuperada do chat também aparece no material 2026. Usar palco, iluminação e fotografias reais; não copiar álbuns, turnês ou o futuro site de referência. Evitar efeitos que ocultem conteúdo ou comprometam leitura.
 
 As fotos oficiais examinadas são predominantemente verticais. Para desktop, considerar texto e foto lado a lado ou composição que preserve o enquadramento; para celular, manter rosto/corpo e CTA legíveis. Avaliar os originais e crédito do fotógrafo antes de produzir os recortes finais. Referência fornecida: https://tributoreidopop.com.br/. Por instrução expressa do usuário, estudar SOMENTE a distribuição de conteúdo e a arquitetura de navegação; manter cores e tipografia próprias de Denys. Não copiar textos, imagens, identidade ou código.

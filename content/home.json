@@ -61,14 +61,14 @@
       "es": "Un tributo hecho de fan para fan."
     },
     "artist_label": {
-      "pt": "Palco, pesquisa e trajetória",
-      "en": "Stage, research and experience",
-      "es": "Escenario, investigación y trayectoria"
+      "pt": "O artista",
+      "en": "The artist",
+      "es": "El artista"
     },
     "artist_title": {
-      "pt": "Uma história que começa com admiração.",
-      "en": "A story that begins with admiration.",
-      "es": "Una historia que comienza con admiración."
+      "pt": "Sobre Denys Jackson",
+      "en": "About Denys Jackson",
+      "es": "Sobre Denys Jackson"
     },
     "artist_body": {
       "pt": "Denys Jackson iniciou sua trajetória como intérprete de Michael Jackson em 2015, no Parque Madureira, no Rio de Janeiro. A paixão pela performance ganhou pesquisa, figurinos e produção própria — e se transformou em Na Ponta dos Pés.",
@@ -146,9 +146,9 @@
       "es": "Montaje 2026"
     },
     "bad_title": {
-      "pt": "A energia da era Bad.",
-      "en": "The energy of the Bad era.",
-      "es": "La energía de la era Bad."
+      "pt": "Montagem Bad — 2026",
+      "en": "Bad production — 2026",
+      "es": "Montaje Bad — 2026"
     },
     "bad_body": {
       "pt": "Uma estética urbana, sombria e marcada pelo rock. A montagem reúne referências da Bad World Tour, Captain EO e Speed Demon, com repertório e linguagem visual próprios.",
@@ -176,9 +176,9 @@
       "es": "Prensa y participaciones"
     },
     "media_title": {
-      "pt": "O trabalho também conta histórias fora do palco.",
-      "en": "The story continues beyond the stage.",
-      "es": "La historia continúa fuera del escenario."
+      "pt": "Na mídia",
+      "en": "In the media",
+      "es": "En los medios"
     },
     "globo_context": {
       "pt": "Reportagem sobre o espetáculo",
@@ -206,9 +206,9 @@
       "es": "Agenda"
     },
     "agenda_title": {
-      "pt": "Nos encontramos no próximo palco.",
-      "en": "See you at the next stage.",
-      "es": "Nos vemos en el próximo escenario."
+      "pt": "Próximas apresentações",
+      "en": "Upcoming performances",
+      "es": "Próximas presentaciones"
     },
     "agenda_body": {
       "pt": "Acompanhe a programação e os canais oficiais para informações sobre as próximas apresentações.",
@@ -226,9 +226,9 @@
       "es": "Para prensa y producción"
     },
     "materials_title": {
-      "pt": "Tudo para conhecer e levar o espetáculo adiante.",
-      "en": "Everything to discover and bring the show to your stage.",
-      "es": "Todo para conocer y llevar el espectáculo a tu escenario."
+      "pt": "Material profissional",
+      "en": "Professional resources",
+      "es": "Material profesional"
     },
     "materials_body": {
       "pt": "Apresentação, conteúdo para divulgação e informações de produção reunidos no material profissional de 2026.",
@@ -276,9 +276,9 @@
       "es": "Hablemos"
     },
     "contact_title": {
-      "pt": "Leve Na Ponta dos Pés para o seu palco.",
-      "en": "Bring Na Ponta dos Pés to your stage.",
-      "es": "Lleva Na Ponta dos Pés a tu escenario."
+      "pt": "Contato e contratação",
+      "en": "Contact and bookings",
+      "es": "Contacto y contratación"
     },
     "contact_body": {
       "pt": "Contratações, circulação, imprensa e projetos culturais. Fale diretamente com a produção.",

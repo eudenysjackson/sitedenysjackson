@@ -71,3 +71,7 @@
 - **Decisão**: primeiro protótipo em `/prototipo/`, com paleta própria, Inter local licenciada e fotografias existentes otimizadas. Manter a página raiz até revisão; não criar páginas internas vazias.
 - **Conteúdo**: JSON próprio PT/EN/ES editável no CMS; contatos reaproveitam site.json. Pré-renderização no build e aprimoramento progressivo. Escapar textos do CMS e validar URLs antes de renderizar.
 - **Revisão**: screenshots e testes locais; nenhuma publicação oficial autorizada. Agenda sem anunciar data pendente; fotos/vídeo sujeitos à curadoria final.
+
+## DEC-011 — Preservar o vidro original (2026-10-29)
+
+O usuário rejeitou a primeira proposta visual por perder o vidro do site. A Home de desenvolvimento passa a reutilizar diretamente as classes de `css/style.css`, com fundo azul-cinza, Inter e superfícies claras translúcidas. A evolução será na arquitetura e no conteúdo, preservando a estética existente. Não houve publicação.

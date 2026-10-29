@@ -8,3 +8,5 @@
 - Do not commit private chat exports, credential values, raw certificates, or the full production media archive. Keep only relevant planning sources and approved public assets in the repository.
 - Keep planning documents distinct from published pages. At this stage, `docs/planejamento/` holds proposals; it does not approve final content, visual design, or deployment.
 - Confirmed editorial decisions: use `contato@denysjackson.com.br`; prioritize the 2026 technical/team sheet for credits and a variable cast of 2–8 dancers. The reference `https://tributoreidopop.com.br/` is for content distribution and navigation architecture only; preserve Denys's existing colors and typography.
+
+- Visual correction from the user: preserve the original light glassmorphism, not just the palette and Inter. Reuse css/style.css glass surfaces, blue-gray background, translucent navigation, subtle white borders and rounded panels. The first dark editorial prototype was rejected; do not reintroduce giant type, arched portraits or generic promotional headings.

@@ -159,3 +159,9 @@ Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua
 - `scripts/build-home-prototype.js`: pré-renderiza conteúdo e valida fontes/links; chamado pelo build estático para gerar `_site/prototipo/`.
 - `scripts/test-home-prototype.js`: edição CMS, escape, links, três idiomas e repetibilidade. `scripts/test-home-browser.js`: layout em quatro larguras, fotos/fonte, idiomas, teclado, no-JS e screenshots.
 - `scripts/test-development-browser.js`: inclui edição real da nova coleção em fixture. `docs/planejamento/prototipo-home.md`: escopo e instruções de revisão.
+
+## Revisão visual da Home (2026-10-29)
+
+- `prototipo/index.html` carrega `css/style.css` antes de `css/home.css` e reutiliza as classes de vidro originais, sem alterar a página raiz ou seu CSS compartilhado.
+- `css/home.css` cuida do layout e da navegação da proposta clara. `content/home.json` usa títulos diretos em PT/EN/ES.
+- `scripts/test-home-browser.js` confere também transparência, blur e raio do vidro original, logo preta e screenshot da seção Sobre.
