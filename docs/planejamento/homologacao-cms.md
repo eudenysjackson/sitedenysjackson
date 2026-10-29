@@ -57,3 +57,5 @@ Não há URL remota de homologação provisionada nesta etapa. A branch sincroni
 ## Atualização: ambiente local homologado
 
 A preparação foi completada após esta primeira etapa: consulte `../../DESENVOLVIMENTO.md`. O CMS local agora carrega um bundle oficial verificado do servidor, e `node scripts/develop.js` supervisiona os três serviços. A validação real em Chromium confirmou login, edição persistente após reload, upload e salvamento do painel visual em cópia temporária. Nenhum arquivo de conteúdo original foi alterado. O painel visual local usa `/api/content`, limitado aos quatro JSONs permitidos e à branch correta. As limitações anteriores de login/edição locais foram resolvidas; Sveltia remoto e hospedagem pública separada não foram provisionados/validados.
+
+O GitHub Actions foi consultado: execução 40899393785 sem etapas iniciadas, bloqueada pela conta devido a cobrança. Ver detalhes em DESENVOLVIMENTO.md. As evidências de testes desta tarefa são locais, não passes de CI remoto.

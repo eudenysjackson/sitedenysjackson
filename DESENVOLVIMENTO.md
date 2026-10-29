@@ -51,3 +51,7 @@ Não envie chats privados, certificados ou acervo bruto. O workflow de desenvolv
 Este é um ambiente local de desenvolvimento funcional e reproduzível. Não é um endereço público hospedado. Não foi criado serviço de hospedagem, túnel público, DNS nem segundo GitHub Pages. A plataforma deste chat não disponibiliza ferramenta de publicação de preview; portanto não há link remoto de homologação para compartilhar. O CMS remoto Sveltia, caso venha a ser usado em uma hospedagem separada, mantém sua autenticação própria e ainda requer validação real; o fluxo local acima já funciona sem essa dependência.
 
 Na nuvem, processos não são preservados por snapshots: ao retomar, execute novamente `node scripts/develop.js`. As instruções de instalação/inicialização também ficam salvas no rascunho da configuração do ambiente; salvar o rascunho não publica uma nova imagem nem o site oficial.
+
+## Estado observado do GitHub Actions
+
+Em 29/10/2026, a execução de desenvolvimento 40899393785 falhou antes de iniciar qualquer etapa. A anotação oficial do GitHub foi: “The job was not started because your account is locked due to a billing issue.” Portanto, o CI remoto está bloqueado pela conta, não é uma reprovação dos testes. Os testes e a homologação descritos acima foram executados localmente e passaram. Resolver a cobrança/limitação na conta GitHub é uma ação externa caso se queira ativar o CI; isso não bloqueia desenvolvimento local nem push para a branch. Nenhuma configuração de cobrança foi alterada.
