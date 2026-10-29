@@ -13,3 +13,5 @@
 
 - The user rejected both single-page redesign proposals. Start from the actual original index.html components and photos, preserving their layout/proportions as well as style.css. Separate the seven pages requested in the historical brief. Do not merely recolor the rejected layout. Read docs/planejamento/releitura-historico.md.
 - The review is generated from CMS JSON by scripts/build-home-prototype.js. Run it with --source for prototipo/*.html and run the normal static build for _site/prototipo/. There is no live CMS fetch on these review pages: rebuild after edits. Original site/about/gallery JSON remain sources for images. Use ballet in new Portuguese copy.
+
+- Continuation checkpoint: read RETOMADA.md first. The user said the seven-page review is much better but still not satisfactory; it is not approved. They asked to save and pause for continuation on another machine. Do not infer further visual changes or publication approval.

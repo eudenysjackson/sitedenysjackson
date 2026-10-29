@@ -183,3 +183,7 @@ A composição anterior foi rejeitada; ver `docs/planejamento/releitura-historic
 ## Download da revisão (2026-10-29)
 
 - `docs/revisao/site-html.zip`: pacote das sete páginas HTML autossuficientes, com licença da fonte e instruções de abertura. Disponível na branch de desenvolvimento para download direto pelo GitHub. É snapshot para revisão; não é o site oficial nem é copiado pelo build público. Regenerar com scripts/export-review.js após uma nova versão visual.
+
+## Ponto de retomada (2026-10-29)
+
+- `RETOMADA.md`: estado visual ainda não aprovado, revisão entregue, branch, instruções para outra máquina, testes já concluídos e próximo passo. O usuário pediu salvar e pausar; não há autorização de publicação.
