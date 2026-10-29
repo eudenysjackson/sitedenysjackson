@@ -257,10 +257,11 @@
         </div>
     </div>
 
+    <script src="development.js"></script>
     <script>
-    var IS_LOCAL = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
-    var REPO = 'eudenysjackson/sitedenysjackson';
-    var BRANCH = 'main';
+    var IS_LOCAL = window.DJAdmin.local;
+    var REPO = window.DJAdmin.repo;
+    var BRANCH = window.DJAdmin.branch;
     var token = '';
     var siteData = null;
     var galleryData = null;
@@ -356,9 +357,7 @@
     }
 
     async function ghSave(path, content, sha, message) {
-        if (IS_LOCAL) {
-            throw new Error('Modo local: este painel não publica no GitHub. Use o CMS principal (Publicar) e depois git push.');
-        }
+        window.DJAdmin.assertRemoteWrite();
         var res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, {
             method: 'PUT',
             headers: { 'Authorization': 'token ' + token, 'Accept': 'application/vnd.github.v3+json', 'Content-Type': 'application/json' },

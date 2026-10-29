@@ -129,3 +129,12 @@
 
 Esses documentos não alteram a aplicação nem autorizam deploy. O CMS continua apontando para main e precisa ser isolado antes de uso em homologação remota. O build público atual copia uma lista explícita de ativos; não inclui `docs/`.
 - `AGENTS.md`: regras persistentes de desenvolvimento, sincronização e autorização de publicação, incluindo isolamento do CMS.
+
+## Isolamento do CMS em desenvolvimento (2026-10-29)
+
+- `admin/development.js`: configuração compartilhada de branch e proteção de mutações GitHub do CMS/painéis; bloqueia domínio oficial nesta versão de desenvolvimento.
+- `admin/index.html`: valida destino antes de carregar o CMS; `config.yml`, ajustes e galeria usam development/novo-site.
+- `scripts/local-api.js`: recusa POST se o checkout não estiver na branch de desenvolvimento; porta padrão 8082, alternativa via DJ_LOCAL_API_PORT.
+- `scripts/test-admin-isolation.js`: testes de fronteiras com chamadas simuladas e API HTTP em checkout temporário; sem gravações em produção.
+- `.github/workflows/development-checks.yml`: testes/build de desenvolvimento sem deploy. `pages.yml` exige ref main nos jobs.
+- `docs/planejamento/homologacao-cms.md`: operação, evidências e limites; não há preview remoto nem autenticação CMS real validada nesta etapa.

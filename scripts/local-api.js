@@ -6,10 +6,11 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { execFileSync } = require('child_process');
 const img = require('./image-optimize');
 
 const ROOT = path.join(__dirname, '..');
-const PORT = 8082;
+const PORT = Number(process.env.DJ_LOCAL_API_PORT || 8082);
 const UPLOADS = path.join(ROOT, 'images', 'uploads');
 const GALLERY = path.join(ROOT, 'content', 'gallery.json');
 
@@ -43,6 +44,18 @@ function readGallery() {
 
 const server = http.createServer(async function(req, res) {
     cors(res);
+
+    if (req.method === 'POST') {
+        var branch;
+        try {
+            branch = execFileSync('git', ['branch', '--show-current'], { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+        } catch (e) { branch = ''; }
+        if (branch !== 'development/novo-site') {
+            res.writeHead(409, { 'Content-Type': 'application/json' });
+            res.end(JSON.stringify({ error: 'Gravação local bloqueada: use a branch development/novo-site.' }));
+            return;
+        }
+    }
 
     if (req.method === 'OPTIONS') {
         res.writeHead(204);
@@ -132,6 +145,6 @@ const server = http.createServer(async function(req, res) {
 
 ensureUploadsDir();
 server.listen(PORT, function() {
-    console.log('Local API: http://localhost:' + PORT);
+    console.log('Local API: http://localhost:' + server.address().port);
     console.log('Salva em content/gallery.json e images/uploads/ (sem GitHub)');
 });

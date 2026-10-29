@@ -15,3 +15,5 @@ ERR-007 (2026-09-07): HTML inicial continha placeholders de foto, agenda e galer
 ERR-008 (2026-10-29, identificado, não corrigido): auditoria confirmou evento passado com status `confirmado` em “Próximos Shows”, devido ao filtro data futura OU confirmado no render estático e navegador. Reprodução isolada em memória; nenhuma agenda real alterada. Planejamento em `docs/planejamento/auditoria-editorial.md`.
 
 ERR-009 (2026-10-29, identificado, causa operacional pendente): HTML público retornado pelo domínio é idêntico ao `index.html` fonte de 27.504 bytes, em vez da saída pré-renderizada do build. Conferir origem/artefato do GitHub Pages antes da próxima publicação autorizada; nenhuma configuração de produção foi alterada.
+
+ERR-010 (2026-10-29, corrigido na branch de desenvolvimento): CMS e painéis de homologação fixavam main, e upload do CMS remoto tentava localhost antes de GitHub. Destinos centralizados em admin/development.js, YAML validado antes do CMS, mutações fora da branch recusadas e upload separado por modo. API local recusa gravação em checkout errado. Validação: 27 testes de isolamento + testes estáticos/build. Não aplicado ao painel oficial antigo.

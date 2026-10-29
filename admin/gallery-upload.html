@@ -162,11 +162,12 @@
         <div class="loading">Carregando...</div>
     </div>
 
+    <script src="development.js"></script>
     <script>
-    var REPO = 'eudenysjackson/sitedenysjackson';
-    var BRANCH = 'main';
+    var REPO = window.DJAdmin.repo;
+    var BRANCH = window.DJAdmin.branch;
     var LOCAL_API = 'http://localhost:8082';
-    var isLocalMode = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+    var isLocalMode = window.DJAdmin.local;
     var token = '';
     var galleryData = { photos: [] };
     var gallerySha = '';
@@ -233,6 +234,7 @@
     }
 
     async function ghPut(path, contentB64, message, sha) {
+        window.DJAdmin.assertRemoteWrite();
         var body = { message: message, content: contentB64, branch: BRANCH };
         if (sha) body.sha = sha;
         var res = await fetch('https://api.github.com/repos/' + REPO + '/contents/' + path, {
@@ -288,7 +290,7 @@
                     '</div>' +
                     '<div class="field"><label>Legenda (opcional)</label><input type="text" id="caption" placeholder="Ex: Show no Imperator"></div>' +
                     '<div class="btn-row">' +
-                        '<button class="btn btn-primary" id="save-btn" onclick="savePhoto()">' + (isLocalMode ? 'Salvar localmente' : 'Publicar no site') + '</button>' +
+                        '<button class="btn btn-primary" id="save-btn" onclick="savePhoto()">' + (isLocalMode ? 'Salvar localmente' : 'Salvar em homologação') + '</button>' +
                         '<button class="btn btn-ghost" onclick="resetEditor()">Cancelar</button>' +
                     '</div>' +
                     '<div class="status" id="status"></div>' +
@@ -479,7 +481,7 @@
     async function savePhoto() {
         var btn = document.getElementById('save-btn');
         btn.disabled = true;
-        btn.textContent = isLocalMode ? 'Salvando...' : 'Publicando...';
+        btn.textContent = 'Salvando...';
         var posStr = posX + '% ' + posY + '%';
         var caption = document.getElementById('caption').value.trim();
 
@@ -521,7 +523,7 @@
             } else {
                 var result = await ghPut('content/gallery.json', btoa(unescape(encodeURIComponent(JSON.stringify(galleryData, null, 2) + '\n'))), 'Atualizar galeria 4:5', gallerySha);
                 gallerySha = result.content.sha;
-                setStatus('ok', 'Publicado! O site atualiza em 1–3 min.');
+                setStatus('ok', 'Salvo na branch de desenvolvimento. O site oficial não foi alterado.');
             }
             renderThumbs();
             if (isNewUpload) resetEditor();
@@ -529,7 +531,7 @@
             setStatus('err', e.message);
         }
         btn.disabled = false;
-        btn.textContent = isLocalMode ? 'Salvar localmente' : 'Publicar no site';
+        btn.textContent = isLocalMode ? 'Salvar localmente' : 'Salvar em homologação';
     }
 
     function setStatus(type, msg) {

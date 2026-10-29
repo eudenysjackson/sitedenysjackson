@@ -11,8 +11,8 @@
     var h = window.h;
     var createClass = window.createClass;
     var LOCAL_API = 'http://localhost:8082';
-    var REPO = 'eudenysjackson/sitedenysjackson';
-    var BRANCH = 'main';
+    var REPO = window.DJAdmin.repo;
+    var BRANCH = window.DJAdmin.branch;
     var _galleryPendingPhotos = null;
     var _galleryFlushFn = null;
 
@@ -63,7 +63,7 @@
     }
 
     function isLocal() {
-        return location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+        return window.DJAdmin.local;
     }
 
     function toPlain(val) {
@@ -311,27 +311,19 @@
         var ext = (file.name.split('.').pop() || 'jpg').toLowerCase().replace('jpeg', 'jpg');
         var fname = 'gallery-' + slugify(file.name.replace(/\.[^.]+$/, '')) + '-' + Date.now() + '.' + ext;
 
-        try {
+        if (isLocal()) {
             var b64 = await readFileBase64(file);
             var res = await fetch(LOCAL_API + '/api/upload', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ filename: fname, data: b64 })
             });
-            if (res.ok) {
-                var up = await res.json();
-                return up.path;
-            }
-            var errBody = await res.text();
-            throw new Error('API respondeu ' + res.status + (errBody ? ': ' + errBody.slice(0, 80) : ''));
-        } catch (e) {
-            if (e.message && e.message.indexOf('API respondeu') === 0) throw e;
+            if (!res.ok) throw new Error('Upload local falhou. Verifique a API local; nenhum envio ao GitHub foi feito.');
+            var up = await res.json();
+            return up.path;
         }
 
-        if (isLocal()) {
-            throw new Error('Upload local falhou. Rode iniciar-local.bat (API em localhost:8082). Não publica no site oficial.');
-        }
-
+        window.DJAdmin.assertRemoteWrite();
         var token = getGithubToken();
         if (token) {
             var b64g = await readFileBase64(file);

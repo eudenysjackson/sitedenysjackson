@@ -8,7 +8,7 @@
 backend:
   name: github
   repo: eudenysjackson/sitedenysjackson
-  branch: main
+  branch: development/novo-site
 
 # Local (Decap + decap-server): local_backend: true — rode iniciar-local.ps1
 # Online (Sveltia): esta opção é ignorada

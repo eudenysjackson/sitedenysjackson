@@ -6,7 +6,7 @@ Documento de trabalho de 29/10/2026. Conteúdo proposto para homologação; não
 
 - Trabalhar na branch `development/novo-site`, mantendo `main` intacta. Sincronização remota permite continuidade entre máquinas e não autoriza deploy.
 - Não executar workflow de publicação, merge em main, escrita via CMS online ou mudança de DNS/Pages sem autorização explícita para publicar a versão candidata.
-- Esta etapa contém planejamento. A branch não constitui um preview remoto e o CMS ainda aponta para main. Antes de editar pelo painel em homologação, isolar também todos os destinos de escrita.
+- A branch contém planejamento e isolamento do CMS de desenvolvimento, documentado em `homologacao-cms.md`. Ela não constitui um preview remoto. A nova versão do painel usa development/novo-site; o painel oficial antigo não foi alterado. Login/edição reais ainda precisam de homologação.
 - Usar o checkout existente; não criar worktree sem pedido explícito. Não enviar exportação de chats, certificados com dados pessoais nem acervo bruto ao Git.
 - Não presumir que a branch herda segredos, processos ou ferramentas de outra máquina. Conferir instruções e estado local ao retomar.
 

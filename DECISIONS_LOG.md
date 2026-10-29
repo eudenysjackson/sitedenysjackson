@@ -52,3 +52,10 @@
 - **Limite**: esta decisão não isola por si só o CMS atual, cujos destinos de escrita ainda usam main; essa separação precisa ser implementada e validada antes de edição remota em homologação.
 - **Fontes**: materiais profissionais 2026 do Drive e chat histórico, diferenciando correções do usuário de propostas antigas do assistente. Divergências de contato/equipe ficam pendentes.
 - **Confirmações editoriais do usuário**: e-mail contato@denysjackson.com.br; prioridade da ficha técnica 2026 para equipe; referência tributoreidopop.com.br restrita à arquitetura/distribuição, mantendo cores e tipografia próprias.
+
+### DEC-008 — Destino único e recusa de gravações fora do desenvolvimento
+- **Data**: 2026-10-29
+- **Decisão**: CMS YAML e painéis usam development/novo-site; script compartilhado recusa domínio oficial e mutações fetch GitHub fora dessa branch. API local exige a branch real por POST. Não há fallback para main ou upload GitHub quando o modo local falha.
+- **Validação**: 27 testes, incluindo HTTP em checkout temporário, mais suíte estática e build.
+- **Operação**: CI de desenvolvimento apenas testa e gera; deploy existente só roda jobs em main. Nada foi publicado.
+- **Limite**: as proteções estão nesta versão de desenvolvimento. Login/edição reais, preview remoto e permissões GitHub ainda precisam de homologação; não substituir controles de acesso por guards do navegador.
